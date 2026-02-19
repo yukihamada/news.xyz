@@ -1,0 +1,193 @@
+/* ===== Pastel Theme: Soft colors, rounded, gentle aesthetic ===== */
+
+[data-theme="pastel"] {
+  --bg: #fdf6f0;
+  --text: #4a3f35;
+  --surface: #fff;
+  --border: #ecdfd4;
+  --accent: #e8927c;
+  --accent-hover: #d97d66;
+  --muted: #a89888;
+  --radius: 16px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+[data-theme="pastel"][data-mode="dark"] {
+  --bg: #2a2420;
+  --text: #f0e6dc;
+  --surface: #362e28;
+  --border: #4a4038;
+  --accent: #f0a890;
+  --accent-hover: #f5bca8;
+  --muted: #a89888;
+}
+
+/* Header — soft pastel bar */
+[data-theme="pastel"] .header {
+  background: #f5ebe0;
+  border-bottom: 1px solid #ecdfd4;
+}
+[data-theme="pastel"][data-mode="dark"] .header {
+  background: #221e1a;
+  border-bottom-color: #4a4038;
+}
+[data-theme="pastel"] .logo {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1rem;
+}
+[data-theme="pastel"] .cat-btn {
+  color: var(--muted);
+  border-color: var(--border);
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+[data-theme="pastel"][data-mode="dark"] .cat-btn {
+  color: #c0b0a0;
+  border-color: #4a4038;
+}
+[data-theme="pastel"] .cat-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(232, 146, 124, 0.08);
+}
+[data-theme="pastel"] .cat-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+[data-theme="pastel"] .chat-toggle {
+  color: var(--muted);
+  border-color: var(--border);
+  border-radius: 999px;
+}
+
+/* Articles — grid rounded cards */
+[data-theme="pastel"] .articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+[data-theme="pastel"] .article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(74, 63, 53, 0.04);
+}
+[data-theme="pastel"] .article-img-wrap {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  border-radius: 0;
+}
+[data-theme="pastel"] .article-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+[data-theme="pastel"] .article-body {
+  padding: 0.875rem 1rem;
+}
+[data-theme="pastel"] .article:hover {
+  box-shadow: 0 4px 16px rgba(232, 146, 124, 0.12);
+  border-color: var(--accent);
+}
+
+/* Images — rounded */
+[data-theme="pastel"] .article-img-wrap {
+  border-radius: 12px;
+}
+[data-theme="pastel"] .article-img {
+  border-radius: 12px;
+}
+
+/* Title */
+[data-theme="pastel"] .article-title {
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 1.5;
+}
+[data-theme="pastel"] .article-title a {
+  color: var(--text);
+}
+[data-theme="pastel"] .article-title a:hover {
+  color: var(--accent);
+}
+[data-theme="pastel"] .article-title a:visited {
+  color: var(--muted);
+}
+
+/* Description */
+[data-theme="pastel"] .article-desc {
+  -webkit-line-clamp: 2;
+  font-size: 0.85em;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Meta */
+[data-theme="pastel"] .article-meta {
+  font-size: 0.72em;
+}
+[data-theme="pastel"] .article-source {
+  color: var(--accent);
+}
+
+/* Group badge */
+[data-theme="pastel"] .group-badge {
+  color: var(--accent);
+  font-size: 0.7em;
+  border-radius: 999px;
+}
+
+/* Read state */
+[data-theme="pastel"] .article.read {
+  opacity: 0.4;
+}
+
+/* Load more */
+[data-theme="pastel"] .load-more-btn {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+}
+[data-theme="pastel"] .load-more-btn:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(232, 146, 124, 0.3);
+}
+
+/* Detail */
+[data-theme="pastel"] .detail-q-chip {
+  border-radius: 999px;
+}
+
+/* Scrollbar */
+[data-theme="pastel"] ::-webkit-scrollbar {
+  width: 6px;
+}
+[data-theme="pastel"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+[data-theme="pastel"] ::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+[data-theme="pastel"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Pro badge */
+[data-theme="pastel"] .pro-badge {
+  color: var(--accent);
+  border-color: var(--accent);
+  border-radius: 999px;
+}

@@ -1,0 +1,121 @@
+/* ===== Card Theme: Image grid, modern layout ===== */
+
+[data-theme="card"] .articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+}
+
+[data-theme="card"] .article {
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+}
+[data-theme="card"] .article:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+[data-theme="card"] .article-img-wrap {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 0;
+}
+[data-theme="card"] .article-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  z-index: 1;
+}
+[data-theme="card"] .article-img-fallback span {
+  font-size: 0.85rem;
+}
+[data-theme="card"] .article-body {
+  padding: 0.75rem 1rem 1rem;
+}
+[data-theme="card"] .article-title {
+  font-size: 1.05em;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+[data-theme="card"] .article-meta {
+  font-size: 0.72em;
+  margin-bottom: 0.35rem;
+}
+[data-theme="card"] .article-desc {
+  -webkit-line-clamp: 3;
+  font-size: 0.85em;
+  line-height: 1.55;
+}
+
+/* First article can be featured (larger) */
+[data-theme="card"] .article:first-child {
+  grid-column: 1 / -1;
+}
+@media (min-width: 700px) {
+  [data-theme="card"] .article:first-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  [data-theme="card"] .article:first-child .article-img-wrap {
+    height: 100%;
+    padding-bottom: 0;
+    min-height: 260px;
+  }
+  [data-theme="card"] .article:first-child .article-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  [data-theme="card"] .article:first-child .article-title {
+    font-size: 1.35em;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) and (min-width: 769px) {
+  [data-theme="card"] .articles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  [data-theme="card"] .articles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  [data-theme="card"] .article-body {
+    padding: 0.75rem 1rem 1rem;
+  }
+  [data-theme="card"] .article-title {
+    font-size: 0.95em;
+  }
+}
+
+/* Small phone: single column */
+@media (max-width: 480px) {
+  [data-theme="card"] .articles {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  [data-theme="card"] .article-img-wrap {
+    padding-bottom: 50%; /* slightly shorter on mobile */
+  }
+  [data-theme="card"] .article-body {
+    padding: 0.75rem 1rem;
+  }
+}

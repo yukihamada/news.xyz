@@ -1,0 +1,57 @@
+/* ===== Lite Theme: No images, list, ultra-fast, serif ===== */
+
+[data-theme="lite"] {
+  font-family: Georgia, "Times New Roman", serif;
+}
+[data-theme="lite"][data-mode="dark"] {
+  --bg: #111;
+  --text: #ddd;
+  --surface: #111;
+  --border: #333;
+}
+
+[data-theme="lite"] .main {
+  max-width: 720px;
+}
+
+/* Hide images */
+[data-theme="lite"] .article-img-wrap {
+  display: none !important;
+}
+
+/* Simplified list */
+[data-theme="lite"] .articles {
+  gap: 0;
+}
+[data-theme="lite"] .article {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.6rem 0;
+}
+[data-theme="lite"] .article:hover {
+  box-shadow: none;
+}
+[data-theme="lite"] .article-title {
+  font-size: 1em;
+}
+[data-theme="lite"] .article-title a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+[data-theme="lite"] .article-desc {
+  display: none;
+}
+[data-theme="lite"] .article-meta {
+  font-size: 0.75em;
+}
+
+/* Minimal header */
+[data-theme="lite"] .header {
+  border-bottom-width: 2px;
+}
+[data-theme="lite"] .logo {
+  font-family: Georgia, serif;
+  font-style: italic;
+}

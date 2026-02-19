@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEWS DAO - Community-owned, privacy-first news aggregation. Join the decentralized future of news.">
+  <meta name="keywords" content="NEWS DAO,decentralized news,Web3,cryptocurrency,governance,privacy">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>NEWS DAO - Decentralized News Governance</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --surface: #1e293b;
+      --border: #334155;
+      --accent: #60a5fa;
+      --accent-hover: #93c5fd;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      color: #94a3b8;
+    }
+
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .token-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .token-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .token-label {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.375rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-phase {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      color: #94a3b8;
+    }
+
+    .footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .section-title { font-size: 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">NEWS DAO</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tokenomics">Tokenomics</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="/dao/airdrop.html">Airdrop</a></li>
+        </ul>
+      </nav>
+      <a href="/dao/airdrop.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Claim Airdrop</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>The Future of News is Decentralized</h1>
+    <p>Community-owned, privacy-first news aggregation powered by AI and governed by the people.</p>
+    <div class="cta-buttons">
+      <a href="/dao/airdrop.html" class="btn btn-primary">Claim Your NEWS Tokens</a>
+      <a href="https://github.com/yukihamada/news-xyz" class="btn btn-secondary" target="_blank">Read Whitepaper</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <h2 class="section-title">Why NEWS DAO?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3 class="feature-title">Privacy First</h3>
+        <p class="feature-desc">No user tracking, no data selling, no algorithmic manipulation. Your reading habits stay private.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3 class="feature-title">AI-Powered</h3>
+        <p class="feature-desc">Advanced AI summarization, categorization, and fact-checking built on Rust for maximum efficiency.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗳️</div>
+        <h3 class="feature-title">Community Governed</h3>
+        <p class="feature-desc">Token holders vote on feature additions, source approvals, and treasury allocation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💎</div>
+        <h3 class="feature-title">Sustainable Revenue</h3>
+        <p class="feature-desc">Contextual advertising (no tracking), premium subscriptions, and API access fund development.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Lightning Fast</h3>
+        <p class="feature-desc">Rust backend with aggressive caching. Free for 100 articles/day, then sustainable model.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3 class="feature-title">Global & Open</h3>
+        <p class="feature-desc">Open-source, multilingual, and accessible to everyone. News is a public good.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics -->
+  <section class="section" id="tokenomics">
+    <h2 class="section-title">NEWS Token Distribution</h2>
+    <div class="tokenomics-grid">
+      <div class="token-stat">
+        <div class="token-value">1B</div>
+        <div class="token-label">Total Supply (Fixed)</div>
+      </div>
+      <div class="token-stat">
+        <div class="token-value">30%</div>
+        <div class="token-label">Community Rewards</div>
+      </div>
+      <div class="token-stat">
+        <div class="token-value">25%</div>
+        <div class="token-label">Airdrop</div>
+      </div>
+      <div class="token-stat">
+        <div class="token-value">20%</div>
+        <div class="token-label">Development Team</div>
+      </div>
+      <div class="token-stat">
+        <div class="token-value">15%</div>
+        <div class="token-label">DAO Treasury</div>
+      </div>
+      <div class="token-stat">
+        <div class="token-value">10%</div>
+        <div class="token-label">DEX Liquidity</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Token Utility</h3>
+      <ul style="list-style: none; display: grid; gap: 1rem;">
+        <li>✅ <strong>Governance:</strong> 1 NEWS = 1 vote on proposals</li>
+        <li>✅ <strong>Ad-free Access:</strong> Stake 10,000 NEWS for premium features</li>
+        <li>✅ <strong>Curation Rewards:</strong> Earn 1,000 NEWS for approved news sources</li>
+        <li>✅ <strong>API Access:</strong> 5,000 NEWS/month (burned on use)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section class="section" id="roadmap">
+    <h2 class="section-title">Development Roadmap</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 0 (Weeks 1-2) - NOW</div>
+        <div class="timeline-title">Product Hunt Launch</div>
+        <div class="timeline-desc">Community building, airdrop announcement, Discord/Twitter setup</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 1 (Weeks 3-6)</div>
+        <div class="timeline-title">Token Design & Legal</div>
+        <div class="timeline-desc">Wyoming DAO LLC registration, tokenomics finalization, legal compliance</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 2 (Weeks 7-14)</div>
+        <div class="timeline-title">Smart Contract Development</div>
+        <div class="timeline-desc">ERC-20 token on Polygon, governance contracts, security audits</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 3 (Weeks 15-18)</div>
+        <div class="timeline-title">Governance UI</div>
+        <div class="timeline-desc">Snapshot.org integration, proposal system, voting interface</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 4 (Weeks 19-20)</div>
+        <div class="timeline-title">Mainnet Launch</div>
+        <div class="timeline-desc">Token distribution, DEX liquidity, airdrop claims open</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 5 (Weeks 21-24)</div>
+        <div class="timeline-title">Community Growth</div>
+        <div class="timeline-desc">Partner integrations, marketing campaigns, ecosystem expansion</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align: center;">
+    <h2 class="section-title">Join the Revolution</h2>
+    <p style="font-size: 1.125rem; color: #94a3b8; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Be among the first 1,000 Product Hunt upvoters to claim 100,000 NEWS tokens. Help us build the future of decentralized news.
+    </p>
+    <a href="/dao/airdrop.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem;">Claim Airdrop Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/">news.xyz</a>
+      <a href="https://github.com/yukihamada/news-xyz" target="_blank">GitHub</a>
+      <a href="https://discord.gg/newsxyz" target="_blank">Discord</a>
+      <a href="https://twitter.com/newsxyz_dao" target="_blank">Twitter</a>
+      <a href="/about.html">About</a>
+    </div>
+    <p>&copy; 2026 NEWS DAO. Open source, community-owned.</p>
+  </footer>
+</body>
+</html>

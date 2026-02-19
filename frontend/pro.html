@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script>(function(){var h=location.hostname;var s='xyz';if(h.indexOf('online')!==-1)s='online';else if(h.indexOf('chatnews')!==-1)s='chatnews';else if(h.indexOf('yournews')!==-1)s='yournews';else if(h.indexOf('velo')!==-1)s='velo';else if(h.indexOf('.cloud')!==-1)s='cloud';else if(h.indexOf('claud')!==-1)s='claud';document.documentElement.dataset.site=s;})()</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unlock unlimited AI features with Pro. Unlimited podcasts, AI summaries, Q&A, and TTS.">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>Pro - news.xyz</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/css/pro.css?v=33">
+</head>
+<body>
+  <div class="pro-page">
+    <!-- Back nav -->
+    <nav class="pro-nav">
+      <a href="/" class="pro-nav__back" aria-label="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        <span class="pro-nav__site">news</span>
+      </a>
+      <button class="pro-lang-btn" id="pro-lang-btn" aria-label="Switch language">EN</button>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pro-hero">
+      <div class="pro-hero__badge">Pro</div>
+      <h1 class="pro-hero__title" id="pro-hero-title">Unlimited<br>AI Features</h1>
+      <p class="pro-hero__sub" id="pro-hero-sub">Unlimited podcasts, AI summaries, Q&A, and TTS</p>
+    </header>
+
+    <!-- Plans -->
+    <section class="pro-plans">
+      <!-- Free -->
+      <div class="pro-card">
+        <div class="pro-card__header">
+          <h2 class="pro-card__name">Free</h2>
+          <div class="pro-card__price"><span class="pro-card__amount">&yen;0</span></div>
+        </div>
+        <ul class="pro-card__features" id="pro-free-features">
+          <li class="pro-card__feature">Unlimited news browsing</li>
+          <li class="pro-card__feature">AI Podcast <strong>10/day</strong></li>
+          <li class="pro-card__feature">AI Q&A <strong>20/day</strong></li>
+          <li class="pro-card__feature">AI Summary <strong>20/day</strong></li>
+          <li class="pro-card__feature">TTS <strong>30/day</strong></li>
+          <li class="pro-card__feature">AI Tokens <strong>30T (max 100T)</strong></li>
+        </ul>
+        <a href="/" class="pro-card__btn pro-card__btn--outline" id="pro-free-btn">Current Plan</a>
+      </div>
+
+      <!-- Free + Google -->
+      <div class="pro-card">
+        <div class="pro-card__header">
+          <h2 class="pro-card__name">Free + Google</h2>
+          <div class="pro-card__price"><span class="pro-card__amount">&yen;0</span></div>
+        </div>
+        <ul class="pro-card__features" id="pro-google-features">
+          <li class="pro-card__feature pro-card__feature--highlight"><strong>2x</strong> limits!</li>
+          <li class="pro-card__feature">AI Podcast <strong>20/day</strong></li>
+          <li class="pro-card__feature">AI Q&A <strong>40/day</strong></li>
+          <li class="pro-card__feature">AI Summary <strong>40/day</strong></li>
+          <li class="pro-card__feature">TTS <strong>60/day</strong></li>
+          <li class="pro-card__feature">AI Tokens <strong>30T (max 100T)</strong></li>
+        </ul>
+        <button class="pro-card__btn pro-card__btn--outline" id="pro-google-btn">Sign in with Google</button>
+      </div>
+
+      <!-- Pro -->
+      <div class="pro-card pro-card--featured">
+        <div class="pro-card__popular" id="pro-popular-badge">Recommended</div>
+        <div class="pro-card__header">
+          <h2 class="pro-card__name">Pro</h2>
+          <div class="pro-card__price">
+            <span class="pro-card__amount">&yen;500</span>
+            <span class="pro-card__period" id="pro-period">/mo</span>
+          </div>
+        </div>
+        <ul class="pro-card__features" id="pro-pro-features">
+          <li class="pro-card__feature pro-card__feature--highlight">All AI features <strong>Unlimited</strong></li>
+          <li class="pro-card__feature">AI Podcast <strong>Unlimited</strong></li>
+          <li class="pro-card__feature">AI Q&A <strong>Unlimited</strong></li>
+          <li class="pro-card__feature">AI Summary <strong>Unlimited</strong></li>
+          <li class="pro-card__feature">All TTS Voices <strong>Unlimited</strong></li>
+          <li class="pro-card__feature">AI Tokens <strong>Unlimited</strong></li>
+          <li class="pro-card__feature">Priority API processing</li>
+        </ul>
+        <button class="pro-card__btn pro-card__btn--filled" id="pro-subscribe-btn">Upgrade to Pro</button>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="pro-faq">
+      <h2 class="pro-faq__title" id="pro-faq-title">FAQ</h2>
+      <details class="pro-faq__item">
+        <summary id="faq-q1">Can I cancel anytime?</summary>
+        <p id="faq-a1">Yes. Cancel with one click anytime. You keep Pro features until the next billing date.</p>
+      </details>
+      <details class="pro-faq__item">
+        <summary id="faq-q2">Payment methods?</summary>
+        <p id="faq-a2">Credit cards (Visa, Mastercard, AMEX, JCB) are supported. Processed securely via Stripe.</p>
+      </details>
+      <details class="pro-faq__item">
+        <summary id="faq-q3">What are AI tokens?</summary>
+        <p id="faq-a3">AI features (Q&A, summaries, etc.) consume tokens. Cache hits (repeated questions) earn tokens back. Pro plan has unlimited tokens.</p>
+      </details>
+      <details class="pro-faq__item">
+        <summary id="faq-q4">Does it work on news.online too?</summary>
+        <p id="faq-a4">Yes. The same account gives you Pro features on news.xyz, news.online, and all other sites.</p>
+      </details>
+    </section>
+
+    <!-- Billing portal link for existing Pro users -->
+    <div class="pro-manage" id="pro-manage" style="display:none">
+      <p id="pro-manage-text">You are on the Pro plan</p>
+      <button class="pro-manage__btn" id="pro-portal-btn">Manage Billing</button>
+    </div>
+
+    <footer class="pro-footer">
+      <a href="/" id="pro-footer-home">Home</a>
+      <a href="/about.html">About</a>
+    </footer>
+  </div>
+
+  <script src="/js/storage.js?v=34"></script>
+  <script src="/js/site.js?v=34"></script>
+  <script src="/js/subscription.js?v=34"></script>
+  <script src="/js/google-auth.js?v=34"></script>
+  <script>
+  (function() {
+    // --- i18n ---
+    var strings = {
+      en: {
+        heroTitle: 'Unlimited<br>AI Features',
+        heroSub: 'Unlimited podcasts, AI summaries, Q&A, and TTS',
+        popular: 'Recommended',
+        period: '/mo',
+        freeFeatures: [
+          'Unlimited news browsing',
+          'AI Podcast <strong>10/day</strong>',
+          'AI Q&A <strong>20/day</strong>',
+          'AI Summary <strong>20/day</strong>',
+          'TTS <strong>30/day</strong>',
+          'AI Tokens <strong>30T (max 100T)</strong>'
+        ],
+        googleHighlight: '<strong>2x</strong> limits!',
+        googleFeatures: [
+          'AI Podcast <strong>20/day</strong>',
+          'AI Q&A <strong>40/day</strong>',
+          'AI Summary <strong>40/day</strong>',
+          'TTS <strong>60/day</strong>',
+          'AI Tokens <strong>30T (max 100T)</strong>'
+        ],
+        proHighlight: 'All AI features <strong>Unlimited</strong>',
+        proFeatures: [
+          'AI Podcast <strong>Unlimited</strong>',
+          'AI Q&A <strong>Unlimited</strong>',
+          'AI Summary <strong>Unlimited</strong>',
+          'All TTS Voices <strong>Unlimited</strong>',
+          'AI Tokens <strong>Unlimited</strong>',
+          'Priority API processing'
+        ],
+        freeBtn: 'Current Plan',
+        googleBtn: 'Sign in with Google',
+        googleLoggedIn: 'Signed in',
+        subscribeBtn: 'Upgrade to Pro',
+        subscribing: 'Processing...',
+        subscribed: 'Active',
+        faqTitle: 'FAQ',
+        faq: [
+          ['Can I cancel anytime?', 'Yes. Cancel with one click anytime. You keep Pro features until the next billing date.'],
+          ['Payment methods?', 'Credit cards (Visa, Mastercard, AMEX, JCB) are supported. Processed securely via Stripe.'],
+          ['What are AI tokens?', 'AI features (Q&A, summaries, etc.) consume tokens. Cache hits (repeated questions) earn tokens back. Pro plan has unlimited tokens.'],
+          ['Does it work on news.online too?', 'Yes. The same account gives you Pro features on news.xyz, news.online, and all other sites.']
+        ],
+        manageText: 'You are on the Pro plan',
+        manageBtn: 'Manage Billing',
+        footerHome: 'Home',
+        subNotReady: 'Subscription is not available yet. Please try again later.',
+        subError: 'An error occurred. Please try again.'
+      },
+      ja: {
+        heroTitle: 'AI\u6A5F\u80FD\u3092<br>\u7121\u5236\u9650\u306B',
+        heroSub: '\u30DD\u30C3\u30C9\u30AD\u30E3\u30B9\u30C8\u751F\u6210\u30FBAI\u8981\u7D04\u30FBQ&A\u30FB\u8AAD\u307F\u4E0A\u3052\u304C\u4F7F\u3044\u653E\u984C',
+        popular: '\u304A\u3059\u3059\u3081',
+        period: '/\u6708',
+        freeFeatures: [
+          '\u30CB\u30E5\u30FC\u30B9\u95B2\u89A7\uFF08\u7121\u5236\u9650\uFF09',
+          'AI\u30DD\u30C3\u30C9\u30AD\u30E3\u30B9\u30C8 <strong>10\u56DE/\u65E5</strong>',
+          'AI\u8CEA\u554F\u30FB\u56DE\u7B54 <strong>20\u56DE/\u65E5</strong>',
+          'AI\u8981\u7D04 <strong>20\u56DE/\u65E5</strong>',
+          '\u8AAD\u307F\u4E0A\u3052 <strong>30\u56DE/\u65E5</strong>',
+          'AI\u30C8\u30FC\u30AF\u30F3 <strong>30T\uFF08\u4E0A\u9650100T\uFF09</strong>'
+        ],
+        googleHighlight: '\u5236\u9650\u304C<strong>2\u500D</strong>\u306B\uFF01',
+        googleFeatures: [
+          'AI\u30DD\u30C3\u30C9\u30AD\u30E3\u30B9\u30C8 <strong>20\u56DE/\u65E5</strong>',
+          'AI\u8CEA\u554F\u30FB\u56DE\u7B54 <strong>40\u56DE/\u65E5</strong>',
+          'AI\u8981\u7D04 <strong>40\u56DE/\u65E5</strong>',
+          '\u8AAD\u307F\u4E0A\u3052 <strong>60\u56DE/\u65E5</strong>',
+          'AI\u30C8\u30FC\u30AF\u30F3 <strong>30T\uFF08\u4E0A\u9650100T\uFF09</strong>'
+        ],
+        proHighlight: '\u5168AI\u6A5F\u80FD\u304C<strong>\u7121\u5236\u9650</strong>',
+        proFeatures: [
+          'AI\u30DD\u30C3\u30C9\u30AD\u30E3\u30B9\u30C8 <strong>\u7121\u5236\u9650</strong>',
+          'AI\u8CEA\u554F\u30FB\u56DE\u7B54 <strong>\u7121\u5236\u9650</strong>',
+          'AI\u8981\u7D04 <strong>\u7121\u5236\u9650</strong>',
+          '\u5168TTS\u97F3\u58F0 <strong>\u7121\u5236\u9650</strong>',
+          'AI\u30C8\u30FC\u30AF\u30F3 <strong>\u7121\u5236\u9650</strong>',
+          '\u512A\u5148API\u51E6\u7406'
+        ],
+        freeBtn: '\u73FE\u5728\u306E\u30D7\u30E9\u30F3',
+        googleBtn: 'Google\u3067\u30ED\u30B0\u30A4\u30F3',
+        googleLoggedIn: '\u30ED\u30B0\u30A4\u30F3\u6E08\u307F',
+        subscribeBtn: 'Pro\u306B\u30A2\u30C3\u30D7\u30B0\u30EC\u30FC\u30C9',
+        subscribing: '\u51E6\u7406\u4E2D...',
+        subscribed: '\u3054\u5229\u7528\u4E2D',
+        faqTitle: '\u3088\u304F\u3042\u308B\u8CEA\u554F',
+        faq: [
+          ['\u3044\u3064\u3067\u3082\u89E3\u7D04\u3067\u304D\u307E\u3059\u304B\uFF1F', '\u306F\u3044\u3002\u3044\u3064\u3067\u3082\u30EF\u30F3\u30AF\u30EA\u30C3\u30AF\u3067\u89E3\u7D04\u3067\u304D\u3001\u6B21\u306E\u66F4\u65B0\u65E5\u307E\u3067\u306FPro\u6A5F\u80FD\u3092\u3054\u5229\u7528\u3044\u305F\u3060\u3051\u307E\u3059\u3002'],
+          ['\u652F\u6255\u3044\u65B9\u6CD5\u306F\uFF1F', '\u30AF\u30EC\u30B8\u30C3\u30C8\u30AB\u30FC\u30C9\uFF08Visa, Mastercard, AMEX, JCB\uFF09\u306B\u5BFE\u5FDC\u3002Stripe\u3067\u5B89\u5168\u306B\u51E6\u7406\u3055\u308C\u307E\u3059\u3002'],
+          ['AI\u30C8\u30FC\u30AF\u30F3\u3068\u306F\uFF1F', 'AI\u6A5F\u80FD\uFF08\u8CEA\u554F\u30FB\u56DE\u7B54\u30FB\u8981\u7D04\u7B49\uFF09\u306E\u5229\u7528\u306B\u306F\u30C8\u30FC\u30AF\u30F3\u3092\u6D88\u8CBB\u3057\u307E\u3059\u3002\u30AD\u30E3\u30C3\u30B7\u30E5\u30D2\u30C3\u30C8\uFF08\u904E\u53BB\u306B\u540C\u3058\u8CEA\u554F\u304C\u3042\u3063\u305F\u5834\u5408\uFF09\u3067\u306F\u30C8\u30FC\u30AF\u30F3\u304C\u7372\u5F97\u3067\u304D\u307E\u3059\u3002Pro\u30D7\u30E9\u30F3\u3067\u306F\u30C8\u30FC\u30AF\u30F3\u7121\u5236\u9650\u3067\u3059\u3002'],
+          ['news.online\u3067\u3082\u4F7F\u3048\u307E\u3059\u304B\uFF1F', '\u306F\u3044\u3002\u540C\u3058\u30A2\u30AB\u30A6\u30F3\u30C8\u3067news.xyz\u3001news.online\u3001\u305D\u306E\u4ED6\u5168\u30B5\u30A4\u30C8\u3067Pro\u6A5F\u80FD\u3092\u3054\u5229\u7528\u3044\u305F\u3060\u3051\u307E\u3059\u3002']
+        ],
+        manageText: 'Pro\u30D7\u30E9\u30F3\u3092\u3054\u5229\u7528\u4E2D\u3067\u3059',
+        manageBtn: '\u8AB2\u91D1\u7BA1\u7406\u30FB\u89E3\u7D04',
+        footerHome: '\u30DB\u30FC\u30E0\u306B\u623B\u308B',
+        subNotReady: '\u30B5\u30D6\u30B9\u30AF\u30EA\u30D7\u30B7\u30E7\u30F3\u6A5F\u80FD\u306F\u73FE\u5728\u6E96\u5099\u4E2D\u3067\u3059\u3002',
+        subError: '\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002'
+      }
+    };
+
+    var lang = (localStorage.getItem('hn_lang') || navigator.language || 'en').slice(0, 2);
+    if (lang !== 'ja') lang = 'en';
+    var s = strings[lang];
+
+    function applyLang(l) {
+      lang = l;
+      s = strings[l];
+      localStorage.setItem('hn_lang', l);
+      document.documentElement.lang = l;
+      document.getElementById('pro-lang-btn').textContent = l.toUpperCase();
+
+      document.getElementById('pro-hero-title').innerHTML = s.heroTitle;
+      document.getElementById('pro-hero-sub').textContent = s.heroSub;
+      document.getElementById('pro-popular-badge').textContent = s.popular;
+      document.getElementById('pro-period').textContent = s.period;
+
+      // Free features
+      var freeUl = document.getElementById('pro-free-features');
+      freeUl.innerHTML = s.freeFeatures.map(function(f) { return '<li class="pro-card__feature">' + f + '</li>'; }).join('');
+      document.getElementById('pro-free-btn').textContent = s.freeBtn;
+
+      // Google features
+      var googleUl = document.getElementById('pro-google-features');
+      googleUl.innerHTML = '<li class="pro-card__feature pro-card__feature--highlight">' + s.googleHighlight + '</li>' +
+        s.googleFeatures.map(function(f) { return '<li class="pro-card__feature">' + f + '</li>'; }).join('');
+
+      // Google button
+      var gBtn = document.getElementById('pro-google-btn');
+      if (!gBtn.disabled) gBtn.textContent = s.googleBtn;
+
+      // Pro features
+      var proUl = document.getElementById('pro-pro-features');
+      proUl.innerHTML = '<li class="pro-card__feature pro-card__feature--highlight">' + s.proHighlight + '</li>' +
+        s.proFeatures.map(function(f) { return '<li class="pro-card__feature">' + f + '</li>'; }).join('');
+
+      // Subscribe button
+      var subBtn = document.getElementById('pro-subscribe-btn');
+      if (!subBtn.disabled) subBtn.textContent = s.subscribeBtn;
+
+      // FAQ
+      document.getElementById('pro-faq-title').textContent = s.faqTitle;
+      s.faq.forEach(function(qa, i) {
+        var q = document.getElementById('faq-q' + (i + 1));
+        var a = document.getElementById('faq-a' + (i + 1));
+        if (q) q.textContent = qa[0];
+        if (a) a.textContent = qa[1];
+      });
+
+      // Manage
+      document.getElementById('pro-manage-text').textContent = s.manageText;
+      document.getElementById('pro-portal-btn').textContent = s.manageBtn;
+      document.getElementById('pro-footer-home').textContent = s.footerHome;
+    }
+
+    // Apply site branding
+    var siteId = document.documentElement.dataset.site || 'xyz';
+    var siteName = { xyz: 'news.xyz', online: 'news.online', claud: 'ClaudNews' }[siteId] || 'news.xyz';
+    var el = document.querySelector('.pro-nav__site');
+    if (el) el.textContent = siteName;
+    document.title = 'Pro - ' + siteName;
+
+    // Language toggle
+    document.getElementById('pro-lang-btn').addEventListener('click', function() {
+      applyLang(lang === 'en' ? 'ja' : 'en');
+    });
+
+    // Initial apply
+    applyLang(lang);
+
+    // Show manage section if already Pro
+    if (Subscription.isPro()) {
+      document.getElementById('pro-manage').style.display = '';
+      var btn = document.getElementById('pro-subscribe-btn');
+      if (btn) { btn.textContent = s.subscribed; btn.disabled = true; btn.classList.add('pro-card__btn--disabled'); }
+    }
+
+    // Google login button on pro page
+    var googleBtn = document.getElementById('pro-google-btn');
+    if (googleBtn) {
+      if (typeof GoogleAuth !== 'undefined' && GoogleAuth.isAuthenticated()) {
+        var user = GoogleAuth.getUser();
+        googleBtn.textContent = (user && user.name ? user.name : s.googleLoggedIn);
+        googleBtn.disabled = true;
+        googleBtn.classList.add('pro-card__btn--disabled');
+      } else {
+        googleBtn.addEventListener('click', function() {
+          if (typeof GoogleAuth !== 'undefined') {
+            GoogleAuth.init().then(function() {
+              GoogleAuth.showOneTap();
+              var container = document.createElement('div');
+              container.style.padding = '8px';
+              googleBtn.parentNode.insertBefore(container, googleBtn.nextSibling);
+              GoogleAuth.renderButton(container);
+            });
+          }
+        });
+      }
+    }
+
+    // Subscribe button
+    document.getElementById('pro-subscribe-btn').addEventListener('click', function() {
+      this.textContent = s.subscribing;
+      this.disabled = true;
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...Subscription.authHeaders() },
+        body: JSON.stringify({ device_id: Subscription.getDeviceId() }),
+      })
+      .then(function(res) {
+        if (res.status === 503) {
+          alert(s.subNotReady);
+          return;
+        }
+        return res.json();
+      })
+      .then(function(data) {
+        if (data && data.url) window.location.href = data.url;
+      })
+      .catch(function() {
+        alert(s.subError);
+      })
+      .finally(function() {
+        var b = document.getElementById('pro-subscribe-btn');
+        if (b && !Subscription.isPro()) { b.textContent = s.subscribeBtn; b.disabled = false; }
+      });
+    });
+
+    // Billing portal
+    var portalBtn = document.getElementById('pro-portal-btn');
+    if (portalBtn) {
+      portalBtn.addEventListener('click', function() {
+        Subscription.openBillingPortal();
+      });
+    }
+
+    // Handle Stripe redirect
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('session_id')) {
+      window.history.replaceState({}, '', window.location.pathname);
+      Subscription.checkRedirect();
+    }
+  })();
+  </script>
+</body>
+</html>

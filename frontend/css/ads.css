@@ -1,0 +1,142 @@
+/**
+ * ads.css — Ad units and upgrade CTA styles
+ * Pro users: ads hidden via JS (elements not inserted)
+ */
+
+/* Feed in-stream ad unit (AdSense fluid) */
+.feed-ad-unit {
+  scroll-snap-align: start;
+  width: 100%;
+  height: auto;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.feed-ad-unit ins {
+  display: block;
+  width: 100%;
+}
+
+.feed-ad-label {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+/* Feed in-stream upgrade CTA (when AdSense not set) */
+.feed-ad-cta {
+  scroll-snap-align: start;
+  width: 100%;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(59, 130, 246, 0.08));
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 16px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.feed-ad-cta__icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.feed-ad-cta__text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.feed-ad-cta__sub {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+}
+
+.feed-ad-cta__btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.feed-ad-cta__btn:active {
+  transform: scale(0.96);
+}
+
+/* Standard site banner ad */
+.banner-ad {
+  width: 100%;
+  max-width: 728px;
+  margin: 16px auto;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface, #f8f9fa);
+  border-radius: var(--radius, 12px);
+  overflow: hidden;
+}
+
+.banner-ad ins {
+  display: block;
+  width: 100%;
+}
+
+/* Banner upgrade CTA (standard site, no AdSense) */
+.banner-ad-cta {
+  width: 100%;
+  max-width: 728px;
+  margin: 16px auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface, #f8f9fa);
+  border: 1px solid var(--border, #e8ecf0);
+  border-radius: var(--radius, 12px);
+}
+
+[data-mode="dark"] .banner-ad-cta {
+  background: var(--surface, #1e293b);
+  border-color: var(--border, #334155);
+}
+
+.banner-ad-cta__text {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.banner-ad-cta__btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--accent, #3b82f6);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}

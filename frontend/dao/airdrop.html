@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Claim your NEWS tokens - Early supporter airdrop for Product Hunt community">
+  <title>Claim NEWS Tokens - Airdrop</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --surface: #1e293b;
+      --border: #334155;
+      --accent: #60a5fa;
+      --success: #10b981;
+      --error: #ef4444;
+      --warning: #f59e0b;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .main {
+      flex: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-subtitle {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      background: rgba(96, 165, 250, 0.1);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .requirements {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .requirement {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(96, 165, 250, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .requirement-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .requirement-icon.pending {
+      border: 2px solid var(--border);
+      color: #64748b;
+    }
+
+    .requirement-icon.completed {
+      background: var(--success);
+      color: white;
+    }
+
+    .alert {
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .alert-info {
+      background: rgba(96, 165, 250, 0.1);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      color: var(--accent);
+    }
+
+    .alert-warning {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--warning);
+    }
+
+    .alert-success {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--success);
+    }
+
+    .wallet-info {
+      background: rgba(96, 165, 250, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .wallet-address {
+      font-family: 'Monaco', monospace;
+      color: var(--accent);
+      word-break: break-all;
+      font-size: 0.875rem;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .card { padding: 1.5rem; }
+      .card-title { font-size: 1.5rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="/dao.html" class="logo">NEWS DAO</a>
+      <a href="/dao.html" style="color: var(--text); text-decoration: none;">← Back to DAO</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="card">
+      <h1 class="card-title">Claim Your NEWS Tokens</h1>
+      <p class="card-subtitle">Early supporter airdrop for Product Hunt community</p>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value">100M</div>
+          <div class="stat-label">Total Airdrop Pool</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">1,000</div>
+          <div class="stat-label">First Claimers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">100K</div>
+          <div class="stat-label">Tokens Per Person</div>
+        </div>
+      </div>
+
+      <!-- Phase indicator -->
+      <div class="alert alert-warning" id="phase-alert">
+        <span>⚠️</span>
+        <div>
+          <strong>Phase 0 Active</strong><br>
+          Airdrop claims will open after Product Hunt launch and token deployment (Phase 4).
+          Connect your wallet now to register for eligibility.
+        </div>
+      </div>
+
+      <!-- Requirements -->
+      <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Eligibility Requirements</h3>
+      <ul class="requirements">
+        <li class="requirement">
+          <span class="requirement-icon pending" id="req1-icon">1</span>
+          <div>
+            <strong>Upvote on Product Hunt</strong><br>
+            <small style="color: #94a3b8;">Be among the first 1,000 upvoters</small>
+          </div>
+        </li>
+        <li class="requirement">
+          <span class="requirement-icon pending" id="req2-icon">2</span>
+          <div>
+            <strong>Connect Wallet</strong><br>
+            <small style="color: #94a3b8;">MetaMask or WalletConnect supported</small>
+          </div>
+        </li>
+        <li class="requirement">
+          <span class="requirement-icon pending" id="req3-icon">3</span>
+          <div>
+            <strong>Join Discord</strong><br>
+            <small style="color: #94a3b8;">Stay updated on launch progress</small>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Wallet connection -->
+      <div id="wallet-connect-section">
+        <button class="btn btn-primary" id="connect-btn" onclick="connectWallet()">
+          <span>🦊</span>
+          Connect Wallet
+        </button>
+      </div>
+
+      <div id="wallet-connected-section" class="hidden">
+        <div class="alert alert-success">
+          <span>✅</span>
+          <div>
+            <strong>Wallet Connected!</strong><br>
+            You're registered for the airdrop. We'll notify you when claims open.
+          </div>
+        </div>
+
+        <div class="wallet-info">
+          <strong style="display: block; margin-bottom: 0.5rem;">Connected Address:</strong>
+          <div class="wallet-address" id="wallet-address"></div>
+        </div>
+
+        <button class="btn btn-success" style="margin-top: 1.5rem;" disabled>
+          <span>🎉</span>
+          Claim Tokens (Opens in Phase 4)
+        </button>
+      </div>
+
+      <!-- Additional info -->
+      <div class="alert alert-info" style="margin-top: 2rem;">
+        <span>ℹ️</span>
+        <div>
+          <strong>What happens next?</strong><br>
+          1. Token deployment on Polygon (Phase 2)<br>
+          2. Smart contract audit (Phase 2-3)<br>
+          3. Airdrop claims open (Phase 4)<br>
+          4. Tokens distributed to your wallet
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+
+      <details style="margin-bottom: 1rem; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 0.5rem 0;">When can I claim my tokens?</summary>
+        <p style="color: #94a3b8; margin-top: 0.5rem; padding-left: 1rem;">
+          Airdrop claims open in Phase 4 (weeks 19-20 of the roadmap), after token deployment and auditing are complete.
+        </p>
+      </details>
+
+      <details style="margin-bottom: 1rem; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 0.5rem 0;">Which blockchain is NEWS token on?</summary>
+        <p style="color: #94a3b8; margin-top: 0.5rem; padding-left: 1rem;">
+          NEWS token will launch on Polygon PoS for low fees and fast transactions. A Solana migration is planned for Phase 5.
+        </p>
+      </details>
+
+      <details style="margin-bottom: 1rem; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 0.5rem 0;">What can I do with NEWS tokens?</summary>
+        <p style="color: #94a3b8; margin-top: 0.5rem; padding-left: 1rem;">
+          Governance voting (1 token = 1 vote), stake for ad-free access (10,000 NEWS), earn curation rewards, and access API features.
+        </p>
+      </details>
+
+      <details style="margin-bottom: 1rem; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 0.5rem 0;">Is this a free airdrop?</summary>
+        <p style="color: #94a3b8; margin-top: 0.5rem; padding-left: 1rem;">
+          Yes! 100% free for the first 1,000 Product Hunt upvoters. No purchase necessary. You only pay network gas fees when claiming.
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <script>
+    let walletAddress = null;
+
+    async function connectWallet() {
+      const btn = document.getElementById('connect-btn');
+
+      // Check if MetaMask is installed
+      if (typeof window.ethereum === 'undefined') {
+        alert('Please install MetaMask to continue.\n\nVisit: https://metamask.io');
+        window.open('https://metamask.io', '_blank');
+        return;
+      }
+
+      try {
+        btn.innerHTML = '<span class="loading"></span> Connecting...';
+        btn.disabled = true;
+
+        // Request account access
+        const accounts = await window.ethereum.request({
+          method: 'eth_requestAccounts'
+        });
+
+        walletAddress = accounts[0];
+
+        // Store registration (in production, send to backend)
+        localStorage.setItem('news_dao_wallet', walletAddress);
+        localStorage.setItem('news_dao_registered', Date.now());
+
+        // Update UI
+        document.getElementById('wallet-address').textContent = walletAddress;
+        document.getElementById('wallet-connect-section').classList.add('hidden');
+        document.getElementById('wallet-connected-section').classList.remove('hidden');
+        document.getElementById('req2-icon').textContent = '✓';
+        document.getElementById('req2-icon').classList.remove('pending');
+        document.getElementById('req2-icon').classList.add('completed');
+
+        // In production: send to backend API
+        console.log('Wallet registered:', walletAddress);
+
+      } catch (error) {
+        console.error('Wallet connection error:', error);
+        btn.innerHTML = '<span>🦊</span> Connect Wallet';
+        btn.disabled = false;
+
+        if (error.code === 4001) {
+          alert('Wallet connection cancelled. Please try again when ready.');
+        } else {
+          alert('Failed to connect wallet. Please try again.');
+        }
+      }
+    }
+
+    // Check if already connected
+    window.addEventListener('load', async () => {
+      const savedWallet = localStorage.getItem('news_dao_wallet');
+
+      if (savedWallet && typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+
+          if (accounts.length > 0 && accounts[0].toLowerCase() === savedWallet.toLowerCase()) {
+            walletAddress = accounts[0];
+            document.getElementById('wallet-address').textContent = walletAddress;
+            document.getElementById('wallet-connect-section').classList.add('hidden');
+            document.getElementById('wallet-connected-section').classList.remove('hidden');
+            document.getElementById('req2-icon').textContent = '✓';
+            document.getElementById('req2-icon').classList.remove('pending');
+            document.getElementById('req2-icon').classList.add('completed');
+          }
+        } catch (error) {
+          console.error('Auto-connect error:', error);
+        }
+      }
+    });
+
+    // Handle account changes
+    if (typeof window.ethereum !== 'undefined') {
+      window.ethereum.on('accountsChanged', (accounts) => {
+        if (accounts.length === 0) {
+          // User disconnected
+          localStorage.removeItem('news_dao_wallet');
+          window.location.reload();
+        } else if (accounts[0] !== walletAddress) {
+          // User switched accounts
+          walletAddress = accounts[0];
+          localStorage.setItem('news_dao_wallet', walletAddress);
+          document.getElementById('wallet-address').textContent = walletAddress;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

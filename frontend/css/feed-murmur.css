@@ -1,0 +1,62 @@
+/* feed-murmur.css — AI murmur subtitle overlay */
+
+.murmur-subtitle {
+  position: fixed;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  max-width: min(90vw, 400px);
+  padding: 12px 18px 12px 40px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.murmur-subtitle::before {
+  content: 'AI';
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.murmur-subtitle.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.murmur-subtitle.fade-out {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-4px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Loading state with pulse dots */
+.murmur-subtitle.loading .murmur-text::after {
+  content: '...';
+  animation: murmur-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes murmur-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}

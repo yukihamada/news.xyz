@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy - news.xyz</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a1a; color: #e0e0e0; line-height: 1.6; }
+
+    .header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #1a1a3e; }
+    .header-inner { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.4rem; font-weight: 700; color: #60a5fa; text-decoration: none; }
+    .nav { display: flex; gap: 1.5rem; }
+    .nav a { color: #a0a0c0; text-decoration: none; transition: color .2s; }
+    .nav a:hover { color: #60a5fa; }
+
+    .hero { padding: 4rem 2rem 3rem; text-align: center; background: linear-gradient(180deg, #0a0a1a 0%, #0f1629 100%); }
+    .hero h1 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; color: #a0a0c0; max-width: 700px; margin: 0 auto; }
+
+    .tabs { display: flex; justify-content: center; gap: 1rem; padding: 2rem; background: #0f1629; flex-wrap: wrap; }
+    .tab-btn { padding: 0.75rem 2rem; background: transparent; border: 1px solid #1a1a3e; color: #a0a0c0; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: all .2s; }
+    .tab-btn:hover { border-color: #60a5fa; color: #60a5fa; }
+    .tab-btn.active { background: #60a5fa; color: #fff; border-color: #60a5fa; }
+
+    .content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    h2 { font-size: 2rem; color: #60a5fa; margin: 2rem 0 1rem; border-bottom: 2px solid #1a1a3e; padding-bottom: 0.5rem; }
+    h3 { font-size: 1.5rem; color: #a78bfa; margin: 1.5rem 0 0.75rem; }
+    h4 { font-size: 1.2rem; color: #e0e0e0; margin: 1rem 0 0.5rem; }
+
+    p { margin-bottom: 1rem; color: #c0c0d0; line-height: 1.8; }
+
+    ul, ol { margin: 1rem 0 1rem 2rem; color: #c0c0d0; }
+    li { margin-bottom: 0.5rem; line-height: 1.7; }
+
+    strong { color: #60a5fa; }
+
+    .highlight-box { background: #12122a; border: 2px solid #60a5fa; border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+    .highlight-box h3 { margin-top: 0; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .stat-card { background: #12122a; border: 1px solid #1a1a3e; border-radius: 8px; padding: 1.5rem; }
+    .stat-card strong { display: block; font-size: 1.8rem; color: #4ade80; margin-bottom: 0.5rem; }
+    .stat-card span { color: #a0a0c0; font-size: 0.9rem; }
+
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #1a1a3e; }
+    th { background: #12122a; color: #60a5fa; font-weight: 600; }
+    td { color: #c0c0d0; }
+
+    .timeline { margin: 2rem 0; }
+    .timeline-item { padding: 1rem; margin: 1rem 0; border-left: 3px solid #60a5fa; padding-left: 1.5rem; background: #12122a; }
+    .timeline-item h4 { color: #60a5fa; }
+
+    .checklist { list-style: none; margin-left: 0; }
+    .checklist li { padding: 0.5rem; margin: 0.5rem 0; background: #12122a; border-radius: 4px; }
+    .checklist li:before { content: "☐ "; color: #60a5fa; font-weight: bold; margin-right: 0.5rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .tabs { flex-direction: column; }
+      .tab-btn { width: 100%; }
+      .content { padding: 2rem 1rem; }
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">news.xyz</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/strategy.html" style="color: #60a5fa;">Strategy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>news.xyz Strategy</h1>
+    <p>Vision, Revenue Model & 90-Day Launch Plan to recover $56,000 domain investment</p>
+  </section>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('vision')">Vision & Mission</button>
+    <button class="tab-btn" onclick="showTab('revenue')">Revenue Strategy</button>
+    <button class="tab-btn" onclick="showTab('launch')">90-Day Launch</button>
+  </div>
+
+  <div class="content">
+
+    <!-- VISION TAB -->
+    <div id="vision-tab" class="tab-content active">
+      <h2>🌟 Vision</h2>
+      <div class="highlight-box">
+        <h3>情報の価値が時間と関心で最適化される世界</h3>
+        <p>すべてのニュースが平等に扱われるべきだとは考えません。読者の関心と時間の経過に応じて、情報は自動的にリッチ化され、または劣化します。重要な記事はAIが深掘りし、画像や動画、背景情報で強化されます。一方、関心を集めない記事は自然に消えていきます。</p>
+      </div>
+
+      <h2>🎯 Mission</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <strong>⚡ 速度は正義</strong>
+          <span>10分以内の最新情報、50ms以下のレスポンス、広告なし</span>
+        </div>
+        <div class="stat-card">
+          <strong>🤖 AIは道具</strong>
+          <span>ネガティブ→ポジティブ質問変換、複数視点提供</span>
+        </div>
+        <div class="stat-card">
+          <strong>📊 人気が質を決める</strong>
+          <span>view/clickベース、上位記事リッチ化、下位80%削除</span>
+        </div>
+        <div class="stat-card">
+          <strong>🔒 プライバシー優先</strong>
+          <span>広告なし、トラッカーなし、データ販売なし</span>
+        </div>
+      </div>
+
+      <h2>🔤 Why "news.xyz"?</h2>
+      <h3>The Domain</h3>
+      <p>2024年、<strong>news.xyz</strong>を<strong>$56,000（約830万円）</strong>で購入。投資ではなく、コミットメントの証明。</p>
+
+      <h3>なぜ ".xyz" なのか？</h3>
+      <ul>
+        <li><strong>Generation Z（世代を超える）</strong> - XYZ = 未来を象徴する拡張子、世代を超えたニュース体験</li>
+        <li><strong>X, Y, Z = 多次元空間</strong> - X軸: 時間（freshness）、Y軸: 人気度（popularity_score）、Z軸: AI拡張（enrichment depth）</li>
+        <li><strong>Unknown Variable（未知数）</strong> - XYZ = 数学の未知数、ニュースの未来は未定義、読者の行動が答えを決める</li>
+        <li><strong>Simple, Global, Memorable</strong> - 3文字で覚えやすい、言語に依存しない</li>
+      </ul>
+
+      <h3>$56,000 の意味</h3>
+      <ul>
+        <li><strong>Long-term Commitment</strong> - 簡単に撤退できない金額</li>
+        <li><strong>Skin in the Game</strong> - 本気度の証明</li>
+        <li><strong>Quality Signal</strong> - 安易なプロジェクトではない</li>
+        <li><strong>Story</strong> - この投資自体がnews.xyzのストーリー</li>
+      </ul>
+
+      <h2>🚀 Our Promise</h2>
+      <ol>
+        <li>広告は永久に掲載しない</li>
+        <li>ユーザーデータを販売しない</li>
+        <li>速度を犠牲にしない</li>
+        <li>AIを人間の代替にしない</li>
+        <li>人気が質を決める仕組みを信頼する</li>
+        <li>透明性を保つ</li>
+        <li>$56,000の投資に見合う価値を提供し続ける</li>
+      </ol>
+    </div>
+
+    <!-- REVENUE TAB -->
+    <div id="revenue-tab" class="tab-content">
+      <h2>💰 Revenue Streams</h2>
+
+      <h3>1. Individual Subscriptions（B2C）</h3>
+      <table>
+        <tr>
+          <th>Tier</th>
+          <th>Price</th>
+          <th>Features</th>
+        </tr>
+        <tr>
+          <td><strong>Free</strong></td>
+          <td>¥0</td>
+          <td>永久無料、広告なし、AI 3回/日（+Konami code 5回）</td>
+        </tr>
+        <tr>
+          <td><strong>Pro</strong></td>
+          <td>¥500/月</td>
+          <td>AI完全無制限、MCP access、Export</td>
+        </tr>
+        <tr>
+          <td><strong>Pro Plus</strong></td>
+          <td>¥1,200/月</td>
+          <td>API 10K req/月、Voice Clone、優先処理</td>
+        </tr>
+      </table>
+
+      <h3>2. API Access（B2B）</h3>
+      <table>
+        <tr>
+          <th>Tier</th>
+          <th>Price</th>
+          <th>Requests</th>
+        </tr>
+        <tr>
+          <td><strong>Developer</strong></td>
+          <td>¥3,000/月</td>
+          <td>50,000/月</td>
+        </tr>
+        <tr>
+          <td><strong>Business</strong></td>
+          <td>¥10,000/月</td>
+          <td>200,000/月 + SLA</td>
+        </tr>
+        <tr>
+          <td><strong>Enterprise</strong></td>
+          <td>¥50,000+/月</td>
+          <td>Unlimited + Custom</td>
+        </tr>
+      </table>
+
+      <h3>3. Data Licensing</h3>
+      <ul>
+        <li><strong>Popularity Score Data</strong>: ¥30,000/月 - 匿名化された人気度データ</li>
+        <li><strong>AI Training Data</strong>: ¥50,000/月 - 要約・Q&Aデータセット</li>
+        <li>用途: メディア企業トレンド分析、AI研究</li>
+      </ul>
+
+      <h3>4. Enterprise Solutions</h3>
+      <ul>
+        <li><strong>Corporate License</strong>: ¥5,000/月〜 - 法人向けマルチユーザー</li>
+        <li><strong>White-Label</strong>: ¥200,000/月〜 - カスタムブランディング、専用インフラ</li>
+      </ul>
+
+      <h2>📈 3-Year Projections（保守的）</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <strong>Year 1</strong>
+          <span>¥9.5M revenue | ¥6.2M profit</span>
+        </div>
+        <div class="stat-card">
+          <strong>Year 2</strong>
+          <span>¥51M revenue | ¥36M profit</span>
+        </div>
+        <div class="stat-card">
+          <strong>Year 3</strong>
+          <span>¥120M revenue | ¥72M profit</span>
+        </div>
+      </div>
+      <p style="text-align: center; color: #60a5fa; font-size: 1.2rem;">$56,000 domain → ¥120M annual revenue in 3 years</p>
+
+      <h2>🔒 Ethical Boundaries</h2>
+      <h3>❌ 絶対にやらないこと</h3>
+      <ul>
+        <li>広告掲載（バナー、ネイティブ、スポンサード記事）</li>
+        <li>ユーザーデータ販売（個人情報、行動履歴）</li>
+        <li>アテンション・ハック（無限スクロール、通知スパム）</li>
+        <li>ダークパターン（解約困難、自動更新隠し）</li>
+      </ul>
+    </div>
+
+    <!-- LAUNCH TAB -->
+    <div id="launch-tab" class="tab-content">
+      <div class="highlight-box">
+        <h2 style="margin-top: 0;">🎯 Goal: Recover $56,000 in 90 Days</h2>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <strong>Month 1</strong>
+            <span>¥16.9M revenue<br>✓ Investment recovered!</span>
+          </div>
+          <div class="stat-card">
+            <strong>Month 2</strong>
+            <span>¥10.5M revenue</span>
+          </div>
+          <div class="stat-card">
+            <strong>Month 3</strong>
+            <span>¥6.2M revenue</span>
+          </div>
+          <div class="stat-card" style="grid-column: span 1;">
+            <strong style="color: #4ade80;">90-Day Total</strong>
+            <span>¥33.6M revenue<br>¥30.6M profit<br><strong style="color: #4ade80;">368% ROI</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <h2>🚀 7 Aggressive Tactics</h2>
+
+      <h3>1. Lifetime Deal（¥4.9M）</h3>
+      <ul>
+        <li>初期100人限定: ¥50,000で永久Pro Plus access</li>
+        <li>AppSumo, Product Hunt, BetaList同時ローンチ</li>
+        <li>最初の10人は¥40,000（早期割引）</li>
+      </ul>
+
+      <h3>2. Enterprise Fast Track（¥5.5M）</h3>
+      <ul>
+        <li>White-label初期費用: ¥500,000/社</li>
+        <li>月額: ¥200,000</li>
+        <li>目標: 5社（地方新聞社、業界メディア）</li>
+      </ul>
+
+      <h3>3. Crowdfunding（¥10M）</h3>
+      <ul>
+        <li>Kickstarter: $30,000（¥4.5M）</li>
+        <li>Makuake: ¥5.5M</li>
+        <li>ストーリー: 「$56,000ドメインでAIニュース革命」</li>
+      </ul>
+
+      <h3>4. Annual Upfront（¥5.5M）</h3>
+      <ul>
+        <li>Pro年払い: ¥20,000（200人）= ¥4M</li>
+        <li>Pro Plus年払い: ¥30,000（50人）= ¥1.5M</li>
+        <li>「最初の100人限定早期価格」でFOMO演出</li>
+      </ul>
+
+      <h3>5. API Early Access（¥1.8M）</h3>
+      <ul>
+        <li>早期アクセス料: ¥30,000/年（50社）</li>
+        <li>Developer tier先行販売</li>
+        <li>Hacker News, Dev.to, GitHub</li>
+      </ul>
+
+      <h3>6. Consulting（¥5M）</h3>
+      <ul>
+        <li>セットアップ支援: ¥300,000/社（10社）</li>
+        <li>技術コンサル: ¥100,000/時間</li>
+        <li>メディア企業のデジタル化支援</li>
+      </ul>
+
+      <h3>7. Data Licensing（¥3M）</h3>
+      <ul>
+        <li>初期データセット: ¥500,000（5社）</li>
+        <li>Popularity scoreデータ販売</li>
+        <li>広告代理店、AI研究機関向け</li>
+      </ul>
+
+      <h2>📅 Launch Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Week 1-2（準備期間）</h4>
+          <ul class="checklist">
+            <li>Landing page最適化（conversion最大化）</li>
+            <li>Product Hunt準備（hunter確保、ティーザー投稿）</li>
+            <li>AppSumo申請</li>
+            <li>Kickstarter/Makuakeページ作成</li>
+            <li>Enterprise営業リスト作成（100社）</li>
+            <li>デモ動画制作（英語/日本語）</li>
+            <li>プレスリリース準備</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h4>Week 3（Launch Week）</h4>
+          <ul class="checklist">
+            <li><strong>Day 1</strong>: Product Hunt Launch（Golden Kitty狙い）</li>
+            <li><strong>Day 2</strong>: Hacker News Show HN</li>
+            <li><strong>Day 3</strong>: Reddit 5 subreddits同時投稿</li>
+            <li><strong>Day 4</strong>: Kickstarter Launch</li>
+            <li><strong>Day 5</strong>: Makuake Launch</li>
+            <li><strong>Day 6-7</strong>: プレスリリース（TechCrunch, ITmedia）</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h4>Week 4-6（Enterprise営業開始）</h4>
+          <ul class="checklist">
+            <li>100社にコールドメール送信</li>
+            <li>デモ10社/週</li>
+            <li>契約2-3社/週目標</li>
+            <li>セットアップ支援開始</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h4>Week 7-13（スケール＆最適化）</h4>
+          <ul class="checklist">
+            <li>API Early Access販売開始</li>
+            <li>データライセンス営業</li>
+            <li>Conversion rate最適化</li>
+            <li>Referral program開始</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>💪 Success Factors</h2>
+      <ol>
+        <li><strong>Story</strong> - 「$56,000を3ヶ月で回収」自体がバイラル</li>
+        <li><strong>Tech Credibility</strong> - Rust, sub-50ms, Lighthouse 100</li>
+        <li><strong>Scarcity</strong> - LTD 100人限定、API 50社限定</li>
+        <li><strong>No Ads Promise</strong> - 差別化、プライバシー重視層</li>
+        <li><strong>Multi-Channel Launch</strong> - 全チャネル同時ローンチ</li>
+        <li><strong>B2C + B2B Hybrid</strong> - 7つの収益源でリスク分散</li>
+      </ol>
+
+      <div class="highlight-box">
+        <h3>🔥 Let's make it happen!</h3>
+        <p style="font-size: 1.2rem; text-align: center; margin: 0;">
+          <strong style="color: #4ade80;">$56K → ¥33.6M in 90 days</strong>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showTab(tabName) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show selected tab
+      document.getElementById(tabName + '-tab').classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

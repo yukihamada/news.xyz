@@ -1,0 +1,230 @@
+/* ===== Neon Theme: Cyberpunk, glowing neon, vivid colors ===== */
+
+[data-theme="neon"] {
+  --bg: #0a0a1a;
+  --text: #e0e0ff;
+  --surface: #12122a;
+  --border: #2a2a5a;
+  --accent: #ff00ff;
+  --accent-hover: #ff44ff;
+  --muted: #7a7aaa;
+  --radius: 8px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+[data-theme="neon"][data-mode="light"] {
+  --bg: #f5f0ff;
+  --text: #1a1030;
+  --surface: #fff;
+  --border: #d8d0e8;
+  --accent: #aa00cc;
+  --accent-hover: #8800aa;
+  --muted: #7a6a8a;
+}
+
+/* Header — dark with neon glow */
+[data-theme="neon"] .header {
+  background: #06061a;
+  border-bottom: 1px solid #2a2a5a;
+  box-shadow: 0 1px 12px rgba(255, 0, 255, 0.1);
+}
+[data-theme="neon"][data-mode="light"] .header {
+  background: #1a1030;
+  border-bottom-color: #1a1030;
+  box-shadow: none;
+}
+[data-theme="neon"] .logo {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+[data-theme="neon"][data-mode="light"] .logo {
+  text-shadow: none;
+}
+[data-theme="neon"] .cat-btn {
+  color: #8a8acc;
+  border-color: #2a2a5a;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+[data-theme="neon"][data-mode="light"] .cat-btn {
+  color: #e0d0ff;
+  border-color: rgba(255,255,255,0.2);
+}
+[data-theme="neon"] .cat-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-shadow: 0 0 6px rgba(255, 0, 255, 0.4);
+}
+[data-theme="neon"][data-mode="light"] .cat-btn:hover {
+  text-shadow: none;
+}
+[data-theme="neon"] .cat-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: 600;
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.3);
+}
+[data-theme="neon"][data-mode="light"] .cat-btn.active {
+  box-shadow: none;
+}
+[data-theme="neon"] .chat-toggle {
+  color: #8a8acc;
+  border-color: #2a2a5a;
+  border-radius: 4px;
+}
+[data-theme="neon"][data-mode="light"] .chat-toggle {
+  color: #e0d0ff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Articles - Neon grid cards */
+[data-theme="neon"] .articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+[data-theme="neon"] .article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+[data-theme="neon"] .article-img-wrap {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  border-radius: 0;
+}
+[data-theme="neon"] .article-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+[data-theme="neon"] .article-body {
+  padding: 0.75rem 1rem;
+}
+[data-theme="neon"] .article:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.15), inset 0 0 16px rgba(255, 0, 255, 0.03);
+}
+[data-theme="neon"][data-mode="light"] .article:hover {
+  box-shadow: 0 4px 16px rgba(170, 0, 204, 0.1);
+}
+
+/* Images */
+[data-theme="neon"] .article-img-wrap {
+  border-radius: 6px;
+}
+[data-theme="neon"] .article-img {
+  border-radius: 6px;
+}
+
+/* Title */
+[data-theme="neon"] .article-title {
+  font-size: 0.92em;
+  font-weight: 600;
+  line-height: 1.5;
+}
+[data-theme="neon"] .article-title a {
+  color: var(--text);
+}
+[data-theme="neon"] .article-title a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(255, 0, 255, 0.3);
+}
+[data-theme="neon"][data-mode="light"] .article-title a:hover {
+  text-shadow: none;
+}
+[data-theme="neon"] .article-title a:visited {
+  color: var(--muted);
+}
+
+/* Description */
+[data-theme="neon"] .article-desc {
+  -webkit-line-clamp: 2;
+  font-size: 0.82em;
+  opacity: 0.75;
+}
+
+/* Meta */
+[data-theme="neon"] .article-meta {
+  font-size: 0.72em;
+}
+[data-theme="neon"] .article-source {
+  color: #00e5ff;
+}
+[data-theme="neon"][data-mode="light"] .article-source {
+  color: var(--accent);
+}
+
+/* Group badge */
+[data-theme="neon"] .group-badge {
+  color: #00e5ff;
+  border-color: rgba(0, 229, 255, 0.3);
+  background: rgba(0, 229, 255, 0.08);
+}
+[data-theme="neon"][data-mode="light"] .group-badge {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+/* Read state */
+[data-theme="neon"] .article.read {
+  opacity: 0.3;
+}
+
+/* Load more */
+[data-theme="neon"] .load-more-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+[data-theme="neon"] .load-more-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255, 0, 255, 0.3);
+}
+[data-theme="neon"][data-mode="light"] .load-more-btn:hover {
+  box-shadow: none;
+}
+
+/* Detail */
+[data-theme="neon"] .detail-q-chip {
+  border-radius: 4px;
+}
+
+/* Scrollbar */
+[data-theme="neon"] ::-webkit-scrollbar {
+  width: 6px;
+}
+[data-theme="neon"] ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+[data-theme="neon"] ::-webkit-scrollbar-thumb {
+  background: #2a2a5a;
+  border-radius: 4px;
+}
+[data-theme="neon"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Pro badge */
+[data-theme="neon"] .pro-badge {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-shadow: 0 0 6px rgba(255, 0, 255, 0.3);
+}
+[data-theme="neon"][data-mode="light"] .pro-badge {
+  text-shadow: none;
+}

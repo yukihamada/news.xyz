@@ -1,0 +1,207 @@
+/* ===== Hacker Theme: Terminal aesthetic, monospace, green-on-dark ===== */
+
+[data-theme="hacker"] {
+  --bg: #0a0e14;
+  --text: #b3b1ad;
+  --surface: #0d1117;
+  --border: #1e2630;
+  --accent: #39d353;
+  --accent-hover: #56e06e;
+  --muted: #546e7a;
+  --radius: 2px;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', ui-monospace, monospace;
+}
+[data-theme="hacker"][data-mode="light"] {
+  --bg: #f5f5f0;
+  --text: #24292f;
+  --surface: #fff;
+  --border: #d8dee4;
+  --accent: #1a7f37;
+  --accent-hover: #116329;
+  --muted: #6e7681;
+}
+
+/* Header — dark bar with accent glow */
+[data-theme="hacker"] .header {
+  background: #010409;
+  border-bottom: 1px solid #21262d;
+}
+[data-theme="hacker"][data-mode="light"] .header {
+  background: #24292f;
+  border-bottom: 1px solid #24292f;
+}
+[data-theme="hacker"] .logo {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+[data-theme="hacker"] .logo::before {
+  content: '> ';
+  opacity: 0.5;
+}
+[data-theme="hacker"] .cat-btn {
+  color: #8b949e;
+  border-color: #30363d;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+[data-theme="hacker"][data-mode="light"] .cat-btn {
+  color: #fff;
+  border-color: rgba(255,255,255,0.2);
+}
+[data-theme="hacker"] .cat-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+[data-theme="hacker"] .cat-btn.active {
+  background: var(--accent);
+  color: #0a0e14;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+[data-theme="hacker"][data-mode="light"] .cat-btn.active {
+  color: #fff;
+}
+[data-theme="hacker"] .chat-toggle {
+  color: #8b949e;
+  border-color: #30363d;
+  border-radius: 2px;
+}
+[data-theme="hacker"][data-mode="light"] .chat-toggle {
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Main container */
+[data-theme="hacker"] .main {
+  max-width: 860px;
+}
+
+/* Articles — grid terminal layout */
+[data-theme="hacker"] .articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.5rem;
+}
+[data-theme="hacker"] .article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.75rem;
+  flex-direction: column;
+}
+[data-theme="hacker"] .article:hover {
+  box-shadow: none;
+  background: rgba(56, 211, 83, 0.03);
+}
+[data-theme="hacker"][data-mode="light"] .article:hover {
+  background: rgba(26, 127, 55, 0.04);
+}
+
+/* Hide images — text-focused */
+[data-theme="hacker"] .article-img-wrap {
+  display: none !important;
+}
+
+/* Title */
+[data-theme="hacker"] .article-title {
+  font-size: 0.88em;
+  font-weight: 400;
+  line-height: 1.5;
+}
+[data-theme="hacker"] .article-title a {
+  color: var(--text);
+  transition: color 0.1s;
+}
+[data-theme="hacker"] .article-title a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+[data-theme="hacker"] .article-title a:visited {
+  color: var(--muted);
+}
+
+/* Description — show 1 line */
+[data-theme="hacker"] .article-desc {
+  -webkit-line-clamp: 1;
+  font-size: 0.78em;
+  opacity: 0.7;
+}
+
+/* Meta */
+[data-theme="hacker"] .article-meta {
+  font-size: 0.7em;
+  letter-spacing: 0.01em;
+}
+[data-theme="hacker"] .article-source {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* Group badge */
+[data-theme="hacker"] .group-badge {
+  color: var(--accent);
+  font-size: 0.72em;
+  opacity: 0.8;
+}
+
+/* Read state — dimmer */
+[data-theme="hacker"] .article.read {
+  opacity: 0.35;
+}
+[data-theme="hacker"] .article.read::after {
+  border-radius: 2px;
+  font-size: 0.6rem;
+}
+
+/* Load more */
+[data-theme="hacker"] .load-more-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 2px;
+  font-size: 0.78rem;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+}
+[data-theme="hacker"] .load-more-btn:hover {
+  background: var(--accent);
+  color: #0a0e14;
+}
+
+/* TTS button */
+[data-theme="hacker"] .tts-btn {
+  border-radius: 2px;
+}
+
+/* Detail panel */
+[data-theme="hacker"] .detail-q-chip {
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+
+/* Scrollbar */
+[data-theme="hacker"] ::-webkit-scrollbar {
+  width: 6px;
+}
+[data-theme="hacker"] ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+[data-theme="hacker"] ::-webkit-scrollbar-thumb {
+  background: #21262d;
+  border-radius: 0;
+}
+[data-theme="hacker"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Pro badge in hacker theme */
+[data-theme="hacker"] .pro-badge {
+  color: var(--accent);
+  border-color: var(--accent);
+}

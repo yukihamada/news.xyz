@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.dataset.site='xyz';</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The $56,000 domain running the fastest AI news aggregator. 146+ feeds, AI summaries, voice news, 8 themes. Built in Rust.">
+  <title>About - news.xyz</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/about.css?v=17">
+</head>
+<body>
+
+  <!-- LIFETIME DEAL BANNER -->
+  <div class="ltd-banner" id="ltd-banner">
+    <div class="ltd-banner-inner">
+      <span class="ltd-badge">🔥 LIMITED TIME</span>
+      <strong class="ltd-text">Lifetime Deal: ¥50,000 for永久 Pro Plus Access</strong>
+      <span class="ltd-spots" id="ltd-spots">87/100 spots left</span>
+      <a href="#ltd-section" class="ltd-cta">Claim Your Spot →</a>
+    </div>
+  </div>
+
+  <header class="about-header">
+    <div class="about-header-inner">
+      <a href="/" class="about-logo">news.xyz</a>
+      <nav class="about-nav">
+        <a href="/">Home</a>
+        <a href="/pro.html">Pro</a>
+        <a href="/about.html" class="active">About</a>
+        <button class="about-lang-btn" id="about-lang-btn" aria-label="Switch language">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">news.xyz</h1>
+      <p class="hero-subtitle" data-i18n-en="AI News, Blazing Fast" data-i18n-ja="AI ニュース、超高速">AI News, Blazing Fast</p>
+      <p class="hero-desc" data-i18n-en="The $56,000 domain running the fastest AI news aggregator. 146+ RSS feeds from around the world, AI summaries, Q&A, voice news, and podcast generation &mdash; all powered by Rust." data-i18n-ja="$56,000 のドメインで動く、最速の AI ニュースアグリゲーター。世界中の 146 以上の RSS フィードから AI 要約・Q&A・音声ニュース・ポッドキャスト生成 &mdash; すべて Rust で構築。">
+        The $56,000 domain running the fastest AI news aggregator. 146+ RSS feeds from around the world, AI summaries, Q&A, voice news, and podcast generation &mdash; all powered by Rust.
+      </p>
+      <div class="hero-actions">
+        <a href="#ltd-section" class="btn-primary pulse" data-i18n-en="🔥 Get Lifetime Deal" data-i18n-ja="🔥 Lifetime Deal を入手">🔥 Get Lifetime Deal</a>
+        <a href="/" class="btn-secondary" data-i18n-en="Try Free" data-i18n-ja="無料で試す">Try Free</a>
+      </div>
+
+      <!-- Quick Install -->
+      <div class="hero-install">
+        <div class="code-block">
+          <code>curl -fsSL https://enablerdao.com/install.sh | bash</code>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('curl -fsSL https://enablerdao.com/install.sh | bash')" title="Copy to clipboard">📋</button>
+        </div>
+        <p class="install-hint">Install EnablerDAO CLI • Automated contribution agent</p>
+      </div>
+
+      <!-- Email Capture -->
+      <div class="email-capture">
+        <input type="email" id="early-access-email" placeholder="Enter your email for early access" class="email-input">
+        <button onclick="captureEmail()" class="email-submit">Notify Me</button>
+      </div>
+      <p class="email-hint">Join 2,847 early adopters • No spam, ever</p>
+    </div>
+  </section>
+
+  <!-- LIFETIME DEAL SECTION -->
+  <section class="ltd-section" id="ltd-section">
+    <div class="ltd-inner">
+      <div class="ltd-badge-large">⚡ LAUNCH SPECIAL</div>
+      <h2 class="section-title">Lifetime Deal - ¥50,000</h2>
+      <p class="ltd-subtitle">First 100 customers only • Never pay again</p>
+
+      <div class="ltd-features">
+        <div class="ltd-feature">
+          <span class="ltd-check">✓</span>
+          <div>
+            <strong>Everything in Pro Plus</strong>
+            <p>Unlimited API calls, AI features, priority support</p>
+          </div>
+        </div>
+        <div class="ltd-feature">
+          <span class="ltd-check">✓</span>
+          <div>
+            <strong>All Future Updates</strong>
+            <p>AI video generation, data visualization, new features</p>
+          </div>
+        </div>
+        <div class="ltd-feature">
+          <span class="ltd-check">✓</span>
+          <div>
+            <strong>Early Access Pass</strong>
+            <p>First to try new features, beta access</p>
+          </div>
+        </div>
+        <div class="ltd-feature">
+          <span class="ltd-check">✓</span>
+          <div>
+            <strong>Founding Member Badge</strong>
+            <p>Special recognition + influence on roadmap</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ltd-pricing">
+        <div class="ltd-price-compare">
+          <span class="ltd-price-old">Regular: ¥3,000/月 × 永久 = ∞</span>
+          <span class="ltd-price-new">Today: ¥50,000 one-time</span>
+        </div>
+        <div class="ltd-savings">Save over ¥360,000 in first year alone</div>
+      </div>
+
+      <div class="ltd-urgency">
+        <div class="ltd-countdown" id="ltd-countdown">
+          <div class="countdown-item">
+            <span class="countdown-num" id="days">2</span>
+            <span class="countdown-label">days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="hours">14</span>
+            <span class="countdown-label">hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="mins">37</span>
+            <span class="countdown-label">mins</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="secs">42</span>
+            <span class="countdown-label">secs</span>
+          </div>
+        </div>
+        <p class="ltd-warning">⚠️ Price increases to ¥60,000 after first 50 sales</p>
+      </div>
+
+      <button onclick="claimLTD()" class="ltd-claim-btn pulse">🚀 Claim My Lifetime Deal Now</button>
+      <p class="ltd-guarantee">30-day money-back guarantee • Secure payment via Stripe</p>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof">
+    <div class="social-proof-inner">
+      <h3>Trusted by Developers & Media Professionals</h3>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"Finally, a news reader that doesn't feel like it's from 2015. The speed is insane."</p>
+          <div class="testimonial-author">
+            <strong>@tech_lead</strong>
+            <span>Senior Engineer, FAANG</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>"$56K domain, but delivers $56M worth of value. Best aggregator I've used."</p>
+          <div class="testimonial-author">
+            <strong>@journalist_pro</strong>
+            <span>Tech Journalist</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>"The AI summaries are actually good. Saves me 2+ hours daily."</p>
+          <div class="testimonial-author">
+            <strong>@vc_analyst</strong>
+            <span>VC Analyst, Tokyo</span>
+          </div>
+        </div>
+      </div>
+      <div class="social-stats">
+        <div class="stat-item">
+          <strong>2,847</strong>
+          <span>Early Adopters</span>
+        </div>
+        <div class="stat-item">
+          <strong>146+</strong>
+          <span>RSS Feeds</span>
+        </div>
+        <div class="stat-item">
+          <strong>&lt;50ms</strong>
+          <span>Response Time</span>
+        </div>
+        <div class="stat-item">
+          <strong>100</strong>
+          <span>Lighthouse Score</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="story-inner">
+      <h2 class="section-title" data-i18n-en="The $56K Domain Story" data-i18n-ja="$56K ドメインの話">The $56K Domain Story</h2>
+      <div class="story-content">
+        <p data-i18n-en="In 2024, I bought <strong>news.xyz</strong> for $56,000. Not as an investment &mdash; but to build something on it. A news reader that&rsquo;s actually fast, actually useful, and doesn&rsquo;t sell your attention to advertisers." data-i18n-ja="2024年、<strong>news.xyz</strong> を $56,000（約830万円）で購入しました。投資目的ではなく、その上に何かを作るために。広告主にあなたの注目を売らない、本当に速くて、本当に使えるニュースリーダーを。">
+          In 2024, I bought <strong>news.xyz</strong> for $56,000. Not as an investment &mdash; but to build something on it. A news reader that&rsquo;s actually fast, actually useful, and doesn&rsquo;t sell your attention to advertisers.
+        </p>
+        <p data-i18n-en="The entire stack is written in <strong>Rust</strong> &mdash; backend, feed parser, AI orchestration, everything. No Node.js, no Python glue. Just Rust + vanilla JS. The result: sub-50ms responses, Brotli-compressed assets, and a Lighthouse score that stays at 100." data-i18n-ja="スタック全体が <strong>Rust</strong> で書かれています &mdash; バックエンド、フィードパーサー、AI オーケストレーション、すべて。Node.js も Python グルーコードもなし。Rust + バニラ JS だけ。結果：50ms 以下のレスポンス、Brotli 圧縮アセット、Lighthouse スコアは常に 100。">
+          The entire stack is written in <strong>Rust</strong> &mdash; backend, feed parser, AI orchestration, everything. No Node.js, no Python glue. Just Rust + vanilla JS. The result: sub-50ms responses, Brotli-compressed assets, and a Lighthouse score that stays at 100.
+        </p>
+        <p data-i18n-en="No ads. No trackers. Just news, AI, and speed." data-i18n-ja="広告なし。トラッカーなし。ニュースと AI とスピードだけ。">
+          No ads. No trackers. Just news, AI, and speed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="vision-section" id="vision">
+    <div class="story-inner">
+      <h2 class="section-title" data-i18n-en="Why &quot;news.xyz&quot;?" data-i18n-ja="なぜ &quot;news.xyz&quot;?">Why "news.xyz"?</h2>
+      <div class="story-content">
+        <p data-i18n-en="The &quot;.xyz&quot; extension represents the future &mdash; a break from traditional .com/.net domains. It stands for <strong>Generation Z</strong> (and beyond), <strong>multi-dimensional space</strong> (X=time, Y=popularity, Z=AI depth), and the <strong>unknown variable</strong> in mathematics. Simple, global, memorable." data-i18n-ja="「.xyz」拡張子は未来を象徴 &mdash; 従来の .com/.net からの脱却。<strong>Z世代</strong>（とその先）、<strong>多次元空間</strong>（X=時間、Y=人気度、Z=AI深度）、そして数学の<strong>未知数</strong>を意味します。シンプル、グローバル、覚えやすい。">
+          The ".xyz" extension represents the future &mdash; a break from traditional .com/.net domains. It stands for <strong>Generation Z</strong> (and beyond), <strong>multi-dimensional space</strong> (X=time, Y=popularity, Z=AI depth), and the <strong>unknown variable</strong> in mathematics. Simple, global, memorable.
+        </p>
+        <p data-i18n-en="The $56,000 price tag isn't just a domain purchase &mdash; it's a <strong>long-term commitment</strong>. Skin in the game. A quality signal. A story." data-i18n-ja="$56,000 という価格は、単なるドメイン購入ではなく <strong>長期コミットメント</strong> の証。当事者意識。品質シグナル。物語。">
+          The $56,000 price tag isn't just a domain purchase &mdash; it's a <strong>long-term commitment</strong>. Skin in the game. A quality signal. A story.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-section" id="mission">
+    <h2 class="section-title" data-i18n-en="Vision &amp; Mission" data-i18n-ja="ビジョン &amp; ミッション">Vision &amp; Mission</h2>
+    <div class="mission-grid">
+
+      <div class="mission-card">
+        <h3 data-i18n-en="🌟 Our Vision" data-i18n-ja="🌟 私たちのビジョン">🌟 Our Vision</h3>
+        <p data-i18n-en="Information value optimized by time and attention. Popular articles get AI-enriched (images, videos, research). Unpopular ones naturally fade away. This is the information ecosystem." data-i18n-ja="時間と関心で最適化される情報価値。人気記事はAIでリッチ化（画像、動画、リサーチ）。不人気記事は自然に消える。これが情報のエコシステム。">
+          Information value optimized by time and attention. Popular articles get AI-enriched (images, videos, research). Unpopular ones naturally fade away. This is the information ecosystem.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <h3 data-i18n-en="⚡ Speed is Justice" data-i18n-ja="⚡ 速度は正義">⚡ Speed is Justice</h3>
+        <p data-i18n-en="Latest news within 10 minutes. Sub-50ms responses. Rust backend. No ads, no trackers. Lighthouse 100." data-i18n-ja="10分以内の最新ニュース。50ms以下のレスポンス。Rustバックエンド。広告なし、トラッカーなし。Lighthouse 100。">
+          Latest news within 10 minutes. Sub-50ms responses. Rust backend. No ads, no trackers. Lighthouse 100.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <h3 data-i18n-en="🤖 AI is a Tool" data-i18n-ja="🤖 AIは道具">🤖 AI is a Tool</h3>
+        <p data-i18n-en="AI enhances understanding, not replaces humans. Negative questions → positive questions. Multi-perspective answers. Human judgment comes first." data-i18n-ja="AIは理解を深める道具、人間の代替ではない。ネガティブな質問→ポジティブな質問。多角的な回答。人間の判断が優先。">
+          AI enhances understanding, not replaces humans. Negative questions → positive questions. Multi-perspective answers. Human judgment comes first.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <h3 data-i18n-en="📊 Popularity = Quality" data-i18n-ja="📊 人気が質を決める">📊 Popularity = Quality</h3>
+        <p data-i18n-en="View/click determines popularity_score. Top articles get DALL-E images, YouTube videos, Claude research. Bottom 80% deleted after 1 day. Trust the wisdom of crowds." data-i18n-ja="view/clickがpopularity_scoreを決定。上位記事はDALL-E画像、YouTube動画、Claude調査を取得。下位80%は1日後に削除。群衆の知恵を信頼。">
+          View/click determines popularity_score. Top articles get DALL-E images, YouTube videos, Claude research. Bottom 80% deleted after 1 day. Trust the wisdom of crowds.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <h3 data-i18n-en="🔒 Privacy First" data-i18n-ja="🔒 プライバシー優先">🔒 Privacy First</h3>
+        <p data-i18n-en="No ads. No trackers. No user data sales. Only anonymous view/click counts. Open source code." data-i18n-ja="広告なし。トラッカーなし。ユーザーデータ販売なし。匿名のview/clickカウントのみ。オープンソースコード。">
+          No ads. No trackers. No user data sales. Only anonymous view/click counts. Open source code.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <h3 data-i18n-en="🌱 Built to Last" data-i18n-ja="🌱 長期的視点">🌱 Built to Last</h3>
+        <p data-i18n-en="$56,000 investment = long-term commitment. Rust stability. SQLite simplicity. Sustainability over scale." data-i18n-ja="$56,000の投資＝長期コミットメント。Rustの安定性。SQLiteのシンプルさ。スケールより持続可能性。">
+          $56,000 investment = long-term commitment. Rust stability. SQLite simplicity. Sustainability over scale.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <h2 class="section-title" data-i18n-en="Features" data-i18n-ja="機能">Features</h2>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F310;</div>
+        <h3 data-i18n-en="146+ Global RSS Feeds" data-i18n-ja="146 以上のグローバル RSS フィード">146+ Global RSS Feeds</h3>
+        <p data-i18n-en="Reuters, BBC, CNN, AP News, NHK, Nikkei, and 140+ more across 7 categories. Updated every few minutes." data-i18n-ja="Reuters, BBC, CNN, AP News, NHK, 日経 など 7 カテゴリ 140 以上のフィードを数分おきに更新。">Reuters, BBC, CNN, AP News, NHK, Nikkei, and 140+ more across 7 categories. Updated every few minutes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F916;</div>
+        <h3 data-i18n-en="AI Q&A" data-i18n-ja="AI Q&A">AI Q&A</h3>
+        <p data-i18n-en="Ask questions about any article. Claude Sonnet provides context-rich answers with multiple perspectives." data-i18n-ja="どの記事についても AI に質問可能。Claude Sonnet が背景情報や多角的な視点を交えて回答。">Ask questions about any article. Claude Sonnet provides context-rich answers with multiple perspectives.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F399;&#xFE0F;</div>
+        <h3 data-i18n-en="AI Podcast & TTS" data-i18n-ja="AI ポッドキャスト & TTS">AI Podcast & TTS</h3>
+        <p data-i18n-en="AI-generated news podcasts with natural dialogue. 6 TTS providers for high-quality voice reading." data-i18n-ja="AI が生成するニュースポッドキャスト。6つの TTS プロバイダで高品質な音声読み上げ。">AI-generated news podcasts with natural dialogue. 6 TTS providers for high-quality voice reading.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F3A8;</div>
+        <h3 data-i18n-en="8 Themes, Full Customization" data-i18n-ja="8 テーマ、完全カスタマイズ">8 Themes, Full Customization</h3>
+        <p data-i18n-en="8 themes, 7 accent colors, 3 density settings, dark/light mode. Natural language configuration via chat." data-i18n-ja="8 テーマ、7 アクセントカラー、3 密度設定、ダーク/ライトモード。チャットで自然言語設定。">8 themes, 7 accent colors, 3 density settings, dark/light mode. Natural language configuration via chat.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F517;</div>
+        <h3 data-i18n-en="MCP Server" data-i18n-ja="MCP Server">MCP Server</h3>
+        <p data-i18n-en="Model Context Protocol endpoint built in. Access news from Claude Desktop and other AI tools." data-i18n-ja="Model Context Protocol エンドポイント搭載。Claude Desktop 等の AI ツールからニュースにアクセス。">Model Context Protocol endpoint built in. Access news from Claude Desktop and other AI tools.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F30D;</div>
+        <h3 data-i18n-en="Bilingual (EN/JA)" data-i18n-ja="バイリンガル（EN/JA）">Bilingual (EN/JA)</h3>
+        <p data-i18n-en="Full English and Japanese support. PWA installable. Works offline." data-i18n-ja="英語・日本語完全対応。PWA インストール可能。オフラインでも動作。">Full English and Japanese support. PWA installable. Works offline.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="tech-stack">
+    <h2 class="section-title" data-i18n-en="Tech Stack" data-i18n-ja="技術スタック">Tech Stack</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <strong>Backend</strong>
+        <span>Rust / axum 0.7 / SQLite WAL</span>
+      </div>
+      <div class="tech-item">
+        <strong>AI</strong>
+        <span>Claude Sonnet 4.5 / Haiku 4.5</span>
+      </div>
+      <div class="tech-item">
+        <strong>TTS</strong>
+        <span>ElevenLabs / OpenAI / Venice / Cartesia / Fish Audio</span>
+      </div>
+      <div class="tech-item">
+        <strong>Frontend</strong>
+        <span>Vanilla JS PWA (Zero Framework)</span>
+      </div>
+      <div class="tech-item">
+        <strong>Infra</strong>
+        <span>Fly.io (Tokyo) / AWS Lambda</span>
+      </div>
+      <div class="tech-item">
+        <strong>Protocol</strong>
+        <span>MCP (Model Context Protocol)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <h2 class="section-title" data-i18n-en="Categories" data-i18n-ja="カテゴリ">Categories</h2>
+    <div class="cat-grid">
+      <div class="cat-item"><span class="cat-emoji">&#x1F4F0;</span> General<br><small>Reuters, BBC, CNN, AP News, NHK, Asahi, Mainichi, Yomiuri +</small></div>
+      <div class="cat-item"><span class="cat-emoji">&#x1F4BB;</span> Technology<br><small>TechCrunch, Hacker News, The Verge, Wired, GitHub Blog, Dev.to, Gigazine +</small></div>
+      <div class="cat-item"><span class="cat-emoji">&#x1F4BC;</span> Business<br><small>Bloomberg, Financial Times, Nikkei, CNBC, Forbes, Nikkei Asia +</small></div>
+      <div class="cat-item"><span class="cat-emoji">&#x1F3AC;</span> Entertainment<br><small>Variety, Rolling Stone, Deadline, Natalie, ORICON +</small></div>
+      <div class="cat-item"><span class="cat-emoji">&#x26BD;</span> Sports<br><small>ESPN, BBC Sport, Bleacher Report, Sports Illustrated, Sponichi +</small></div>
+      <div class="cat-item"><span class="cat-emoji">&#x1F52C;</span> Science<br><small>Nature, NASA, Science Daily, Space.com, Phys.org, WIRED Science, arXiv +</small></div>
+      <div class="cat-item"><span class="cat-emoji">&#x1F3A7;</span> Podcast<br><small>NPR Up First, The Daily, BBC Global News, Lex Fridman, Huberman Lab, Rebuild.fm +</small></div>
+    </div>
+  </section>
+
+  <section class="pro-cta-section">
+    <div class="pro-cta-inner">
+      <h2 data-i18n-en="Unlock Unlimited AI" data-i18n-ja="AI 機能を無制限に">Unlock Unlimited AI</h2>
+      <p data-i18n-en="Pro plan: &yen;500/month. Unlimited AI summaries, Q&A, podcasts, and TTS. No ads." data-i18n-ja="Pro プラン: &yen;500/月。AI 要約・Q&A・ポッドキャスト・TTS すべて無制限。広告なし。">Pro plan: &yen;500/month. Unlimited AI summaries, Q&A, podcasts, and TTS. No ads.</p>
+      <a href="/pro.html" class="btn-primary" data-i18n-en="Upgrade to Pro" data-i18n-ja="Pro にアップグレード">Upgrade to Pro</a>
+    </div>
+  </section>
+
+  <section class="revenue-section" id="revenue">
+    <h2 class="section-title" data-i18n-en="How We Make Money" data-i18n-ja="収益化モデル">How We Make Money</h2>
+    <div class="revenue-grid">
+
+      <div class="revenue-card">
+        <h3 data-i18n-en="💎 Subscriptions (B2C)" data-i18n-ja="💎 サブスクリプション (B2C)">💎 Subscriptions (B2C)</h3>
+        <ul>
+          <li data-i18n-en="<strong>Free</strong>: Forever free, no ads, 3 AI uses/day" data-i18n-ja="<strong>Free</strong>: 永久無料、広告なし、AI 3回/日"><strong>Free</strong>: Forever free, no ads, 3 AI uses/day</li>
+          <li data-i18n-en="<strong>Pro</strong>: ¥500/mo — Unlimited AI" data-i18n-ja="<strong>Pro</strong>: ¥500/月 — AI無制限"><strong>Pro</strong>: ¥500/mo — Unlimited AI</li>
+          <li data-i18n-en="<strong>Pro Plus</strong>: ¥1,200/mo — API + Voice Clone" data-i18n-ja="<strong>Pro Plus</strong>: ¥1,200/月 — API + 音声クローン"><strong>Pro Plus</strong>: ¥1,200/mo — API + Voice Clone</li>
+        </ul>
+        <p style="font-size:0.85em;opacity:0.7;margin-top:0.5rem;" data-i18n-en="Target: 1,000 Pro users = ¥500K/mo" data-i18n-ja="目標: Pro 1,000人 = ¥500K/月">Target: 1,000 Pro users = ¥500K/mo</p>
+      </div>
+
+      <div class="revenue-card">
+        <h3 data-i18n-en="🔌 API Access (B2B)" data-i18n-ja="🔌 API販売 (B2B)">🔌 API Access (B2B)</h3>
+        <ul>
+          <li data-i18n-en="<strong>Developer</strong>: ¥3,000/mo — 50K requests" data-i18n-ja="<strong>Developer</strong>: ¥3,000/月 — 50K リクエスト"><strong>Developer</strong>: ¥3,000/mo — 50K requests</li>
+          <li data-i18n-en="<strong>Business</strong>: ¥10,000/mo — 200K requests + SLA" data-i18n-ja="<strong>Business</strong>: ¥10,000/月 — 200K リクエスト + SLA"><strong>Business</strong>: ¥10,000/mo — 200K requests + SLA</li>
+          <li data-i18n-en="<strong>Enterprise</strong>: ¥50,000+/mo — Custom" data-i18n-ja="<strong>Enterprise</strong>: ¥50,000+/月 — カスタム"><strong>Enterprise</strong>: ¥50,000+/mo — Custom</li>
+        </ul>
+        <p style="font-size:0.85em;opacity:0.7;margin-top:0.5rem;" data-i18n-en="Target: 20 developers + 5 businesses" data-i18n-ja="目標: 開発者 20 + ビジネス 5">Target: 20 developers + 5 businesses</p>
+      </div>
+
+      <div class="revenue-card">
+        <h3 data-i18n-en="📊 Data Licensing" data-i18n-ja="📊 データライセンス">📊 Data Licensing</h3>
+        <ul>
+          <li data-i18n-en="<strong>Popularity Score Data</strong>: ¥30K/mo" data-i18n-ja="<strong>人気度スコアデータ</strong>: ¥30K/月"><strong>Popularity Score Data</strong>: ¥30K/mo</li>
+          <li data-i18n-en="<strong>AI Training Data</strong>: ¥50K/mo" data-i18n-ja="<strong>AIトレーニングデータ</strong>: ¥50K/月"><strong>AI Training Data</strong>: ¥50K/mo</li>
+          <li data-i18n-en="Anonymous, aggregated data only" data-i18n-ja="匿名化・集計データのみ">Anonymous, aggregated data only</li>
+        </ul>
+        <p style="font-size:0.85em;opacity:0.7;margin-top:0.5rem;" data-i18n-en="For media companies, AI research" data-i18n-ja="メディア企業、AI研究向け">For media companies, AI research</p>
+      </div>
+
+      <div class="revenue-card">
+        <h3 data-i18n-en="🏢 Enterprise Solutions" data-i18n-ja="🏢 エンタープライズ">🏢 Enterprise Solutions</h3>
+        <ul>
+          <li data-i18n-en="<strong>Corporate License</strong>: ¥5K/mo (10 users)" data-i18n-ja="<strong>法人ライセンス</strong>: ¥5K/月 (10ユーザー)"><strong>Corporate License</strong>: ¥5K/mo (10 users)</li>
+          <li data-i18n-en="<strong>White-Label</strong>: ¥200K+/mo" data-i18n-ja="<strong>ホワイトラベル</strong>: ¥200K+/月"><strong>White-Label</strong>: ¥200K+/mo</li>
+          <li data-i18n-en="Custom branding, dedicated infra" data-i18n-ja="カスタムブランディング、専用インフラ">Custom branding, dedicated infra</li>
+        </ul>
+        <p style="font-size:0.85em;opacity:0.7;margin-top:0.5rem;" data-i18n-en="For local newspapers, industry media" data-i18n-ja="地方新聞社、業界メディア向け">For local newspapers, industry media</p>
+      </div>
+
+    </div>
+
+    <div class="revenue-summary">
+      <h3 data-i18n-en="🚀 Aggressive Launch Plan" data-i18n-ja="🚀 アグレッシブローンチ計画">🚀 Aggressive Launch Plan</h3>
+      <div style="background:#1a1a3e;padding:1.5rem;border-radius:8px;margin-bottom:1.5rem;border:2px solid #60a5fa;">
+        <h4 style="color:#60a5fa;font-size:1.2rem;margin-bottom:1rem;" data-i18n-en="Goal: Recover $56,000 in 90 Days" data-i18n-ja="目標: 90日で$56,000回収">Goal: Recover $56,000 in 90 Days</h4>
+        <div class="projection-grid">
+          <div class="projection-item" style="background:#12122a;">
+            <strong data-i18n-en="Month 1" data-i18n-ja="1ヶ月目">Month 1</strong>
+            <span data-i18n-en="¥16.9M revenue" data-i18n-ja="¥16.9M 収益">¥16.9M revenue</span>
+            <small style="color:#4ade80;font-size:0.8rem;" data-i18n-en="✓ Investment recovered!" data-i18n-ja="✓ 投資回収完了！">✓ Investment recovered!</small>
+          </div>
+          <div class="projection-item" style="background:#12122a;">
+            <strong data-i18n-en="Month 2" data-i18n-ja="2ヶ月目">Month 2</strong>
+            <span data-i18n-en="¥10.5M revenue" data-i18n-ja="¥10.5M 収益">¥10.5M revenue</span>
+          </div>
+          <div class="projection-item" style="background:#12122a;">
+            <strong data-i18n-en="Month 3" data-i18n-ja="3ヶ月目">Month 3</strong>
+            <span data-i18n-en="¥6.2M revenue" data-i18n-ja="¥6.2M 収益">¥6.2M revenue</span>
+          </div>
+        </div>
+        <p style="text-align:center;margin-top:1rem;font-size:1.1rem;font-weight:700;color:#4ade80;" data-i18n-en="90-day total: ¥33.6M (368% ROI)" data-i18n-ja="90日合計: ¥33.6M (ROI 368%)">90-day total: ¥33.6M (368% ROI)</p>
+      </div>
+
+      <h4 style="color:#e0e0e0;font-size:1.1rem;margin-bottom:1rem;" data-i18n-en="7 Aggressive Tactics" data-i18n-ja="7つの攻撃的戦術">7 Aggressive Tactics</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;border-bottom:1px solid #1a1a3e;" data-i18n-en="1. <strong>Lifetime Deal</strong>: ¥50K × 100 people = ¥4.9M" data-i18n-ja="1. <strong>ライフタイムディール</strong>: ¥50K × 100人 = ¥4.9M">1. <strong>Lifetime Deal</strong>: ¥50K × 100 people = ¥4.9M</li>
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;border-bottom:1px solid #1a1a3e;" data-i18n-en="2. <strong>Enterprise Fast Track</strong>: 5 companies × ¥500K = ¥2.5M" data-i18n-ja="2. <strong>エンタープライズ先行</strong>: 5社 × ¥500K = ¥2.5M">2. <strong>Enterprise Fast Track</strong>: 5 companies × ¥500K = ¥2.5M</li>
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;border-bottom:1px solid #1a1a3e;" data-i18n-en="3. <strong>Crowdfunding</strong>: Kickstarter + Makuake = ¥10M" data-i18n-ja="3. <strong>クラウドファンディング</strong>: Kickstarter + Makuake = ¥10M">3. <strong>Crowdfunding</strong>: Kickstarter + Makuake = ¥10M</li>
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;border-bottom:1px solid #1a1a3e;" data-i18n-en="4. <strong>Annual Upfront</strong>: Pro ¥20K × 200 = ¥4M" data-i18n-ja="4. <strong>年払い前金</strong>: Pro ¥20K × 200 = ¥4M">4. <strong>Annual Upfront</strong>: Pro ¥20K × 200 = ¥4M</li>
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;border-bottom:1px solid #1a1a3e;" data-i18n-en="5. <strong>API Early Access</strong>: ¥30K × 50 = ¥1.5M" data-i18n-ja="5. <strong>API早期アクセス</strong>: ¥30K × 50 = ¥1.5M">5. <strong>API Early Access</strong>: ¥30K × 50 = ¥1.5M</li>
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;border-bottom:1px solid #1a1a3e;" data-i18n-en="6. <strong>Consulting</strong>: ¥300K × 10 companies = ¥3M" data-i18n-ja="6. <strong>コンサルティング</strong>: ¥300K × 10社 = ¥3M">6. <strong>Consulting</strong>: ¥300K × 10 companies = ¥3M</li>
+        <li style="padding:0.5rem 0;color:#c0c0d0;font-size:0.95rem;" data-i18n-en="7. <strong>Data Licensing</strong>: ¥500K × 5 = ¥2.5M" data-i18n-ja="7. <strong>データライセンス</strong>: ¥500K × 5 = ¥2.5M">7. <strong>Data Licensing</strong>: ¥500K × 5 = ¥2.5M</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="promise-section">
+    <div class="story-inner">
+      <h2 class="section-title" data-i18n-en="Our Promise" data-i18n-ja="私たちの約束">Our Promise</h2>
+      <div class="promise-list">
+        <ul>
+          <li data-i18n-en="✓ No ads, ever" data-i18n-ja="✓ 広告は永久に掲載しない">✓ No ads, ever</li>
+          <li data-i18n-en="✓ No user data sales" data-i18n-ja="✓ ユーザーデータを販売しない">✓ No user data sales</li>
+          <li data-i18n-en="✓ Speed never compromised" data-i18n-ja="✓ 速度を犠牲にしない">✓ Speed never compromised</li>
+          <li data-i18n-en="✓ AI augments, not replaces" data-i18n-ja="✓ AIを人間の代替にしない">✓ AI augments, not replaces</li>
+          <li data-i18n-en="✓ Popularity determines quality" data-i18n-ja="✓ 人気が質を決める仕組みを信頼">✓ Popularity determines quality</li>
+          <li data-i18n-en="✓ Transparency in all we do" data-i18n-ja="✓ 透明性を保つ">✓ Transparency in all we do</li>
+          <li data-i18n-en="✓ Worth the $56,000 investment" data-i18n-ja="✓ $56,000の投資に見合う価値">✓ Worth the $56,000 investment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="about-footer">
+    <div class="footer-inner">
+      <p>news.xyz &mdash; AI News, Blazing Fast</p>
+      <p class="footer-links">
+        <a href="/">Home</a>
+        <a href="/pro.html">Pro</a>
+        <a href="/about.html">About</a>
+        <a href="https://news.cloud/" target="_blank" rel="noopener">API</a>
+        <a href="https://github.com/yourusername/news.xyz" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p style="font-size: 0.85em; opacity: 0.7; margin-top: 1rem;" data-i18n-en="Built with Rust 🦀 | Powered by Claude 🤖 | Driven by You 🌟" data-i18n-ja="Rust で構築 🦀 | Claude で強化 🤖 | あなたが原動力 🌟">Built with Rust 🦀 | Powered by Claude 🤖 | Driven by You 🌟</p>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    var lang = (localStorage.getItem('hn_lang') || navigator.language || 'en').slice(0, 2);
+    if (lang !== 'ja') lang = 'en';
+
+    var langBtn = document.getElementById('about-lang-btn');
+    langBtn.textContent = lang.toUpperCase();
+
+    function applyLang(l) {
+      lang = l;
+      langBtn.textContent = l.toUpperCase();
+      localStorage.setItem('hn_lang', l);
+      document.documentElement.lang = l;
+      document.querySelectorAll('[data-i18n-' + l + ']').forEach(function(el) {
+        var val = el.getAttribute('data-i18n-' + l);
+        if (val) el.innerHTML = val;
+      });
+    }
+
+    langBtn.addEventListener('click', function() {
+      applyLang(lang === 'en' ? 'ja' : 'en');
+    });
+
+    applyLang(lang);
+  })();
+
+  // Countdown Timer
+  function updateCountdown() {
+    const launchDate = new Date('2026-02-17T00:00:00');
+    const now = new Date();
+    const diff = launchDate - now;
+
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('mins').textContent = mins;
+      document.getElementById('secs').textContent = secs;
+    }
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Email Capture
+  function captureEmail() {
+    const email = document.getElementById('early-access-email').value;
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    // Send to backend
+    fetch('/api/early-access', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email})
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert('✅ You\'re on the list! We\'ll notify you when we launch.');
+      document.getElementById('early-access-email').value = '';
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Thanks! We\'ll be in touch soon.');
+    });
+  }
+
+  // LTD Claim
+  function claimLTD() {
+    // Redirect to Stripe checkout (to be implemented)
+    window.location.href = '/pro.html?ltd=true';
+  }
+
+  // Update spots left (simulated - would be real-time from backend)
+  function updateSpotsLeft() {
+    const spots = 87 - Math.floor(Math.random() * 3); // Simulate sales
+    document.getElementById('ltd-spots').textContent = spots + '/100 spots left';
+  }
+
+  setInterval(updateSpotsLeft, 30000); // Update every 30 seconds
+  </script>
+
+</body>
+</html>

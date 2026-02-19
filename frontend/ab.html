@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>A/B Test Manager</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#f8fafc;--text:#0f172a;--surface:#fff;--border:#e2e8f0;--accent:#0066cc;--muted:#64748b;--radius:10px;--green:#16a34a;--red:#dc2626}
+    @media(prefers-color-scheme:dark){:root{--bg:#0f172a;--text:#e2e8f0;--surface:#1e293b;--border:#334155;--accent:#4fc3f7;--muted:#94a3b8;--green:#4ade80;--red:#f87171}}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+
+    .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 1.5rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:10}
+    .topbar h1{font-size:1.1rem;font-weight:700;color:var(--accent)}
+    .topbar a{color:var(--muted);font-size:0.8rem;text-decoration:none}
+    .topbar a:hover{color:var(--accent)}
+    .topbar-actions{margin-left:auto;display:flex;gap:0.5rem;align-items:center}
+    .btn{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);font-size:0.78rem;cursor:pointer;transition:all .15s}
+    .btn:hover{border-color:var(--accent);color:var(--accent)}
+    .btn-danger{color:var(--red);border-color:var(--red)}
+    .btn-danger:hover{background:var(--red);color:#fff}
+
+    .container{max-width:1100px;margin:0 auto;padding:1.5rem}
+
+    /* Auto-optimize banner */
+    .auto-banner{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.75rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .auto-banner.has-winner{border-color:var(--green);background:color-mix(in srgb,var(--green) 5%,var(--surface))}
+    .auto-label{font-size:0.85rem;font-weight:600}
+    .auto-desc{font-size:0.72rem;color:var(--muted);flex:1}
+    .auto-toggle{display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;cursor:pointer;color:var(--muted)}
+    .auto-toggle input{width:18px;height:18px;accent-color:var(--accent)}
+    .winner-badge{font-size:0.7rem;font-weight:700;color:var(--green);border:1px solid var(--green);border-radius:999px;padding:2px 10px}
+    .phase-badge{font-size:0.65rem;padding:2px 8px;border-radius:999px;font-weight:600}
+    .phase-explore{color:#ca8a04;background:color-mix(in srgb,#ca8a04 10%,var(--surface));border:1px solid #ca8a04}
+    .phase-optimize{color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface));border:1px solid var(--accent)}
+    .phase-converged{color:var(--green);background:color-mix(in srgb,var(--green) 10%,var(--surface));border:1px solid var(--green)}
+
+    /* Stats overview */
+    .stats-bar{display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .stat-card{flex:1;min-width:120px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.75rem 1rem}
+    .stat-value{font-size:1.4rem;font-weight:700;color:var(--accent)}
+    .stat-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em}
+
+    /* Variant grid */
+    .variants{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+    .variant-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s}
+    .variant-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+    .variant-card.enabled{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 20%,transparent)}
+    .variant-card.is-winner{border-color:var(--green);box-shadow:0 0 0 2px color-mix(in srgb,var(--green) 25%,transparent)}
+
+    .variant-preview{height:110px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+    .preview-header{padding:0.4rem 0.75rem;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid}
+    .preview-logo{font-size:0.75rem;font-weight:800}
+    .preview-pills{display:flex;gap:3px}
+    .preview-pill{font-size:0.5rem;padding:2px 8px;border-radius:999px;border:1px solid}
+    .preview-pill.active{color:#fff}
+    .preview-body{flex:1;padding:0.5rem 0.75rem;display:flex;flex-direction:column;gap:4px}
+    .preview-line{height:6px;border-radius:3px;width:80%}
+    .preview-line.short{width:50%}
+    .preview-line.meta{width:35%;height:4px;opacity:0.5}
+
+    .variant-info{padding:0.6rem 1rem 0.4rem}
+    .variant-name{font-size:0.9rem;font-weight:700;margin-bottom:2px;display:flex;align-items:center;gap:0.5rem}
+    .variant-desc{font-size:0.72rem;color:var(--muted)}
+
+    .variant-metrics{padding:0.25rem 1rem 0.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0.25rem}
+    .metric{text-align:center}
+    .metric-val{font-size:0.85rem;font-weight:700}
+    .metric-lbl{font-size:0.55rem;color:var(--muted);text-transform:uppercase}
+
+    /* Win probability bar */
+    .win-prob{padding:0 1rem 0.5rem}
+    .win-prob-bar{height:6px;border-radius:3px;background:var(--border);overflow:hidden}
+    .win-prob-fill{height:100%;border-radius:3px;transition:width .5s}
+    .win-prob-label{font-size:0.6rem;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px}
+
+    .variant-actions{padding:0.4rem 1rem 0.6rem;display:flex;gap:0.5rem;align-items:center}
+    .toggle-label{font-size:0.72rem;color:var(--muted);display:flex;align-items:center;gap:0.3rem;cursor:pointer}
+    .toggle-label input{width:15px;height:15px;accent-color:var(--accent)}
+    .badge-current{font-size:0.55rem;background:var(--accent);color:#fff;padding:2px 6px;border-radius:999px;margin-left:auto;font-weight:600}
+
+    @media(max-width:600px){
+      .variants{grid-template-columns:1fr}
+      .stats-bar{flex-direction:column}
+      .auto-banner{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>A/B Test Manager</h1>
+    <a href="/">&larr; ニュースに戻る</a>
+    <div class="topbar-actions">
+      <button class="btn" id="btn-export">CSV Export</button>
+      <button class="btn btn-danger" id="btn-reset">リセット</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="auto-banner" id="auto-banner"></div>
+    <div class="stats-bar" id="stats-bar"></div>
+    <div class="variants" id="variants-grid"></div>
+  </div>
+
+  <script src="js/storage.js?v=14"></script>
+  <script src="js/ab.js?v=14"></script>
+  <script>
+  'use strict';
+  (function() {
+    // Load state
+    try {
+      const raw = localStorage.getItem('hn_ab');
+      if (!raw) ABTest.init();
+    } catch { ABTest.init(); }
+
+    const variants = ABTest.getVariants();
+    const enabled = ABTest.getEnabled();
+    const stats = ABTest.getStats();
+    const current = ABTest.getCurrent();
+    const autoOn = ABTest.isAutoOptimize();
+    const winner = ABTest.getWinner();
+    let winProbs = {};
+    try { winProbs = ABTest.getWinProbabilities(); } catch { /* not enough data */ }
+
+    // --- Phase detection ---
+    const MIN_SAMPLES = 10;
+    const allExplored = enabled.every(id => (stats[id]?.impressions || 0) >= MIN_SAMPLES);
+    let phase = 'explore';
+    if (winner) phase = 'converged';
+    else if (autoOn && allExplored) phase = 'optimize';
+
+    // --- Auto-optimize banner ---
+    const banner = document.getElementById('auto-banner');
+    if (winner) banner.classList.add('has-winner');
+    const winnerV = variants.find(v => v.id === winner);
+    const phaseLabels = {
+      explore: '<span class="phase-badge phase-explore">探索フェーズ</span> 各バリアントに最低10回ずつ表示中…',
+      optimize: '<span class="phase-badge phase-optimize">最適化中</span> Thompson Samplingで最良バリアントへ自動配分中',
+      converged: '<span class="phase-badge phase-converged">収束</span> 勝者確定: <strong>' + (winnerV ? winnerV.name : '') + '</strong>',
+    };
+    banner.innerHTML = `
+      <div class="auto-label">自動最適化</div>
+      <div class="auto-desc">${autoOn ? phaseLabels[phase] : 'OFF — 均等ランダム配分'}</div>
+      <label class="auto-toggle"><input type="checkbox" id="auto-toggle" ${autoOn?'checked':''}>自動最適化</label>
+      ${winner ? '<button class="btn" id="btn-clear-winner" style="font-size:0.65rem;padding:2px 8px">勝者リセット</button>' : ''}
+    `;
+
+    // --- Stats Overview ---
+    const totalImpressions = Object.values(stats).reduce((a, s) => a + (s.impressions || 0), 0);
+    const totalClicks = Object.values(stats).reduce((a, s) => a + (s.clicks || 0), 0);
+    const totalDetail = Object.values(stats).reduce((a, s) => a + (s.detailOpens || 0), 0);
+    const overallCTR = totalImpressions > 0 ? (totalClicks / totalImpressions * 100).toFixed(1) : '0.0';
+    const bestWP = Object.values(winProbs).length > 0 ? (Math.max(...Object.values(winProbs)) * 100).toFixed(0) : '-';
+
+    document.getElementById('stats-bar').innerHTML = `
+      <div class="stat-card"><div class="stat-value">${enabled.length}/${variants.length}</div><div class="stat-label">有効バリアント</div></div>
+      <div class="stat-card"><div class="stat-value">${totalImpressions}</div><div class="stat-label">総インプレッション</div></div>
+      <div class="stat-card"><div class="stat-value">${overallCTR}%</div><div class="stat-label">全体CTR</div></div>
+      <div class="stat-card"><div class="stat-value">${totalDetail}</div><div class="stat-label">詳細オープン</div></div>
+      <div class="stat-card"><div class="stat-value">${bestWP}%</div><div class="stat-label">最高勝率</div></div>
+    `;
+
+    // --- Variant Cards ---
+    const grid = document.getElementById('variants-grid');
+
+    for (const v of variants) {
+      const isEnabled = enabled.includes(v.id);
+      const s = stats[v.id] || {};
+      const imp = s.impressions || 0;
+      const clk = s.clicks || 0;
+      const det = s.detailOpens || 0;
+      const ctr = imp > 0 ? (clk / imp * 100).toFixed(1) : '0.0';
+      const avgDur = s.sessionCount > 0 ? Math.round((s.totalDuration || 0) / s.sessionCount) : 0;
+      const isCurrent = v.id === current;
+      const isWinner = v.id === winner;
+      const wp = winProbs[v.id] || 0;
+      const wpPct = (wp * 100).toFixed(1);
+
+      // Color for win prob bar
+      let barColor = 'var(--muted)';
+      if (wp >= 0.7) barColor = 'var(--green)';
+      else if (wp >= 0.3) barColor = 'var(--accent)';
+
+      const card = document.createElement('div');
+      card.className = 'variant-card' + (isEnabled ? ' enabled' : '') + (isWinner ? ' is-winner' : '');
+      card.dataset.id = v.id;
+      const c = v.light;
+
+      card.innerHTML = `
+        <div class="variant-preview" style="background:${c.bg}">
+          <div class="preview-header" style="background:${c.surface};border-color:${c.border}">
+            <span class="preview-logo" style="color:${c.accent}">news</span>
+            <div class="preview-pills">
+              <span class="preview-pill active" style="background:${c.accent};border-color:${c.accent};color:#fff">ALL</span>
+              <span class="preview-pill" style="border-color:${c.border};color:${c.muted}">Tech</span>
+              <span class="preview-pill" style="border-color:${c.border};color:${c.muted}">Biz</span>
+            </div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-line" style="background:${c.border}"></div>
+            <div class="preview-line meta" style="background:${c.muted}"></div>
+            <div class="preview-line short" style="background:${c.border}"></div>
+            <div class="preview-line meta" style="background:${c.muted}"></div>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">
+            ${v.name}
+            ${isWinner ? '<span class="winner-badge">WINNER</span>' : ''}
+          </div>
+          <div class="variant-desc">${v.desc}</div>
+        </div>
+        <div class="variant-metrics">
+          <div class="metric"><div class="metric-val">${imp}</div><div class="metric-lbl">表示</div></div>
+          <div class="metric"><div class="metric-val">${ctr}%</div><div class="metric-lbl">CTR</div></div>
+          <div class="metric"><div class="metric-val">${det}</div><div class="metric-lbl">詳細</div></div>
+          <div class="metric"><div class="metric-val">${avgDur}s</div><div class="metric-lbl">滞在</div></div>
+        </div>
+        <div class="win-prob">
+          <div class="win-prob-bar"><div class="win-prob-fill" style="width:${wpPct}%;background:${barColor}"></div></div>
+          <div class="win-prob-label"><span>勝率</span><span>${wpPct}%</span></div>
+        </div>
+        <div class="variant-actions">
+          <label class="toggle-label"><input type="checkbox" class="variant-toggle" data-id="${v.id}" ${isEnabled ? 'checked' : ''}>有効</label>
+          <button class="btn btn-preview" data-id="${v.id}" style="font-size:0.65rem;padding:3px 8px">プレビュー</button>
+          ${isCurrent ? '<span class="badge-current">現在</span>' : ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    }
+
+    // --- Event Handlers ---
+    grid.addEventListener('change', (e) => {
+      const toggle = e.target.closest('.variant-toggle');
+      if (!toggle) return;
+      const id = toggle.dataset.id;
+      if (toggle.checked) ABTest.enableVariant(id);
+      else ABTest.disableVariant(id);
+      toggle.closest('.variant-card').classList.toggle('enabled', toggle.checked);
+    });
+
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn-preview');
+      if (!btn) return;
+      window.open('/?ab_preview=' + btn.dataset.id, '_blank');
+    });
+
+    document.getElementById('auto-toggle').addEventListener('change', (e) => {
+      ABTest.setAutoOptimize(e.target.checked);
+      location.reload();
+    });
+
+    const clearBtn = document.getElementById('btn-clear-winner');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        ABTest.clearWinner();
+        location.reload();
+      });
+    }
+
+    document.getElementById('btn-export').addEventListener('click', () => {
+      const csv = ABTest.exportCSV();
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'ab-test-results.csv'; a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      if (!confirm('全てのA/Bテスト統計をリセットしますか？')) return;
+      ABTest.resetStats();
+      location.reload();
+    });
+  })();
+  </script>
+</body>
+</html>

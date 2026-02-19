@@ -1,0 +1,8 @@
+backend/target/
+backend/infra/
+.git/
+*.md
+.env
+.dockerignore
+fly.toml
+fly.online.toml

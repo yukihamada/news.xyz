@@ -1,0 +1,196 @@
+/* ===== Magazine Theme: Serif headlines, elegant, editorial ===== */
+
+[data-theme="magazine"] {
+  --bg: #faf8f5;
+  --text: #2c2420;
+  --surface: #fff;
+  --border: #e8e0d8;
+  --accent: #c0392b;
+  --accent-hover: #a93226;
+  --muted: #8a7e74;
+  --radius: 4px;
+  font-family: 'Georgia', 'Times New Roman', 'Noto Serif JP', serif;
+}
+[data-theme="magazine"][data-mode="dark"] {
+  --bg: #1a1612;
+  --text: #e8e0d8;
+  --surface: #241e18;
+  --border: #3a3228;
+  --accent: #e74c3c;
+  --accent-hover: #f07060;
+  --muted: #8a7e74;
+}
+
+/* Header — editorial bar */
+[data-theme="magazine"] .header {
+  background: var(--bg);
+  border-bottom: 3px double var(--border);
+}
+[data-theme="magazine"][data-mode="dark"] .header {
+  background: #141210;
+  border-bottom-color: #3a3228;
+}
+[data-theme="magazine"] .logo {
+  font-family: 'Georgia', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  color: var(--accent);
+}
+[data-theme="magazine"] .cat-btn {
+  color: var(--muted);
+  border-color: var(--border);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+[data-theme="magazine"] .cat-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+[data-theme="magazine"] .cat-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+[data-theme="magazine"] .chat-toggle {
+  color: var(--muted);
+  border-color: var(--border);
+  border-radius: 2px;
+}
+
+/* Main container */
+[data-theme="magazine"] .main {
+  max-width: 780px;
+}
+
+/* Articles - Grid layout like newspaper */
+[data-theme="magazine"] .articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+[data-theme="magazine"] .article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Article with image */
+[data-theme="magazine"] .article-img-wrap {
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+  border-radius: 0;
+}
+[data-theme="magazine"] .article-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+[data-theme="magazine"] .article-body {
+  padding: 0.875rem;
+}
+[data-theme="magazine"] .article:first-child {
+  padding-top: 0.5rem;
+}
+[data-theme="magazine"] .article:hover {
+  box-shadow: none;
+}
+
+/* Show smaller images */
+[data-theme="magazine"] .article-img-wrap {
+  width: 100px;
+  min-width: 100px;
+  height: 72px;
+  border-radius: 2px;
+}
+
+/* Title — serif, bigger */
+[data-theme="magazine"] .article-title {
+  font-size: 1.05em;
+  font-weight: 700;
+  line-height: 1.4;
+  font-family: 'Georgia', 'Noto Serif JP', serif;
+}
+[data-theme="magazine"] .article-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+[data-theme="magazine"] .article-title a:hover {
+  color: var(--accent);
+}
+[data-theme="magazine"] .article-title a:visited {
+  color: var(--muted);
+}
+
+/* Description */
+[data-theme="magazine"] .article-desc {
+  -webkit-line-clamp: 2;
+  font-size: 0.88em;
+  line-height: 1.65;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Meta — small caps style */
+[data-theme="magazine"] .article-meta {
+  font-size: 0.72em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+[data-theme="magazine"] .article-source {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Group badge */
+[data-theme="magazine"] .group-badge {
+  color: var(--accent);
+  font-size: 0.68em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Read state */
+[data-theme="magazine"] .article.read {
+  opacity: 0.4;
+}
+
+/* Load more */
+[data-theme="magazine"] .load-more-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+[data-theme="magazine"] .load-more-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Detail panel */
+[data-theme="magazine"] .detail-q-chip {
+  border-radius: 2px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Pro badge */
+[data-theme="magazine"] .pro-badge {
+  color: var(--accent);
+  border-color: var(--accent);
+}

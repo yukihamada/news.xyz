@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>オフライン - HyperNews</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container { max-width: 440px; }
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.5rem;
+      background: rgba(96,165,250,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon svg { color: #60a5fa; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.75rem; color: #f1f5f9; font-weight: 700; }
+    p { line-height: 1.7; margin-bottom: 1.5rem; color: #94a3b8; font-size: 0.95rem; }
+    .retry-btn {
+      background: #3b82f6;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+      min-height: 44px;
+    }
+    .retry-btn:hover { background: #2563eb; }
+    .cached-hint {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #334155;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    .cached-hint a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    .cached-hint a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="1" y1="1" x2="23" y2="23"/>
+        <path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/>
+        <path d="M5 12.55a10.94 10.94 0 015.17-2.39"/>
+        <path d="M10.71 5.05A16 16 0 0122.56 9"/>
+        <path d="M1.42 9a15.91 15.91 0 014.7-2.88"/>
+        <path d="M8.53 16.11a6 6 0 016.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+    </div>
+    <h1>オフラインです</h1>
+    <p>インターネットに接続されていません。<br>接続が回復したら再度お試しください。</p>
+    <button class="retry-btn" onclick="location.reload()">再試行</button>
+    <div class="cached-hint">
+      <p>キャッシュ済みの記事は<a href="/">ホームページ</a>で閲覧できる場合があります。</p>
+    </div>
+  </div>
+</body>
+</html>

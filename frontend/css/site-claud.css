@@ -1,0 +1,68 @@
+/* ===== ClaudNews — Warm & Intellectual Theme (data-site="claud") ===== */
+
+/* Light mode (default) */
+[data-site="claud"] {
+  --bg: #fdf8f6;
+  --surface: #fff;
+  --border: #e7e5e4;
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
+  --muted: #78716c;
+}
+
+/* Dark mode */
+[data-site="claud"][data-mode="dark"] {
+  --bg: #1c1917;
+  --text: #e7e5e4;
+  --surface: #292524;
+  --border: #44403c;
+  --accent: #fb923c;
+  --accent-hover: #fdba74;
+  --muted: #a8a29e;
+}
+
+/* Hacker theme overrides for claud — amber terminal */
+[data-site="claud"][data-theme="hacker"] {
+  --bg: #1a1200;
+  --text: #c4a35a;
+  --surface: #1f1600;
+  --border: #3d2e00;
+  --accent: #f59e0b;
+  --accent-hover: #fbbf24;
+  --muted: #92702d;
+}
+[data-site="claud"][data-theme="hacker"][data-mode="light"] {
+  --bg: #fefbf0;
+  --text: #451a03;
+  --surface: #fff;
+  --border: #e5d5a0;
+  --accent: #b45309;
+  --accent-hover: #92400e;
+  --muted: #78716c;
+}
+
+/* Header warm accent for claud */
+[data-site="claud"][data-theme="hacker"] .header {
+  background: #1a1200;
+  border-bottom: 1px solid #3d2e00;
+}
+[data-site="claud"][data-theme="hacker"][data-mode="light"] .header {
+  background: #451a03;
+  border-bottom: 1px solid #451a03;
+}
+[data-site="claud"][data-theme="hacker"] .article:hover {
+  background: rgba(245, 158, 11, 0.03);
+}
+[data-site="claud"][data-theme="hacker"][data-mode="light"] .article:hover {
+  background: rgba(180, 83, 9, 0.04);
+}
+[data-site="claud"][data-theme="hacker"] .cat-btn.active {
+  color: #1a1200;
+}
+[data-site="claud"][data-theme="hacker"][data-mode="light"] .cat-btn {
+  color: #fff;
+  border-color: rgba(255,255,255,0.2);
+}
+[data-site="claud"][data-theme="hacker"] .load-more-btn:hover {
+  color: #1a1200;
+}

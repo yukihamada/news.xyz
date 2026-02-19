@@ -1,0 +1,1062 @@
+## RSS/Atom Feed Configuration
+## Each [[feeds]] entry maps a public feed to a category.
+
+# --- General ---
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat0.xml"
+source = "NHK"
+category = "general"
+
+[[feeds]]
+url = "https://news.yahoo.co.jp/rss/topics/top-picks.xml"
+source = "Yahoo! Japan"
+category = "general"
+
+[[feeds]]
+url = "https://feeds.reuters.com/reuters/topNews"
+source = "Reuters"
+category = "general"
+
+[[feeds]]
+url = "http://feeds.bbci.co.uk/news/world/rss.xml"
+source = "BBC World"
+category = "general"
+
+[[feeds]]
+url = "https://www.aljazeera.com/xml/rss/all.xml"
+source = "Al Jazeera"
+category = "general"
+
+[[feeds]]
+url = "https://www.theguardian.com/world/rss"
+source = "The Guardian"
+category = "general"
+
+[[feeds]]
+url = "http://rss.cnn.com/rss/edition.rss"
+source = "CNN"
+category = "general"
+
+[[feeds]]
+url = "https://rsshub.app/apnews/topics/apf-topnews"
+source = "AP News"
+category = "general"
+
+[[feeds]]
+url = "https://www.france24.com/en/rss"
+source = "France24"
+category = "general"
+
+[[feeds]]
+url = "https://www.asahi.com/rss/asahi/newsheadlines.rdf"
+source = "Asahi"
+category = "general"
+
+[[feeds]]
+url = "https://mainichi.jp/rss/etc/mainichi-flash.rss"
+source = "Mainichi"
+category = "general"
+
+[[feeds]]
+url = "https://www.yomiuri.co.jp/feed/"
+source = "Yomiuri"
+category = "general"
+
+[[feeds]]
+url = "https://rss.dw.com/rdf/rss-en-all"
+source = "Deutsche Welle"
+category = "general"
+
+[[feeds]]
+url = "https://www.scmp.com/rss/91/feed"
+source = "SCMP"
+category = "general"
+
+[[feeds]]
+url = "https://www.thehindu.com/news/feeder/default.rss"
+source = "The Hindu"
+category = "general"
+
+[[feeds]]
+url = "https://english.kyodonews.net/rss/news.xml"
+source = "Kyodo News"
+category = "general"
+
+[[feeds]]
+url = "https://en.yna.co.kr/RSS/news.xml"
+source = "Yonhap"
+category = "general"
+
+[[feeds]]
+url = "https://www.abc.net.au/news/feed/2942460/rss.xml"
+source = "ABC Australia"
+category = "general"
+
+[[feeds]]
+url = "https://timesofindia.indiatimes.com/rssfeedstopstories.cms"
+source = "Times of India"
+category = "general"
+
+[[feeds]]
+url = "https://www.47news.jp/rss/national_summary.xml"
+source = "47NEWS"
+category = "general"
+
+[[feeds]]
+url = "https://www.sankei.com/feeds/news.xml"
+source = "Sankei"
+category = "general"
+
+[[feeds]]
+url = "https://www.nikkansports.com/rss/news/flash.xml"
+source = "Nikkan Sports"
+category = "general"
+
+[[feeds]]
+url = "https://jp.reuters.com/rssFeed/topNews"
+source = "Reuters Japan"
+category = "general"
+
+[[feeds]]
+url = "https://www.jiji.com/rss/ranking.rdf"
+source = "Jiji Press"
+category = "general"
+
+[[feeds]]
+url = "https://www.nippon.com/ja/feed/"
+source = "nippon.com"
+category = "general"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat1.xml"
+source = "NHK 社会"
+category = "general"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat4.xml"
+source = "NHK 政治"
+category = "general"
+
+# --- Tech ---
+[[feeds]]
+url = "https://hnrss.org/frontpage"
+source = "Hacker News"
+category = "tech"
+
+[[feeds]]
+url = "https://zenn.dev/feed"
+source = "Zenn"
+category = "tech"
+
+[[feeds]]
+url = "https://feeds.feedburner.com/TechCrunch"
+source = "TechCrunch"
+category = "tech"
+
+[[feeds]]
+url = "https://www.publickey1.jp/atom.xml"
+source = "Publickey"
+category = "tech"
+
+[[feeds]]
+url = "https://www.theverge.com/rss/index.xml"
+source = "The Verge"
+category = "tech"
+
+[[feeds]]
+url = "https://feeds.arstechnica.com/arstechnica/index"
+source = "Ars Technica"
+category = "tech"
+
+[[feeds]]
+url = "https://www.wired.com/feed/rss"
+source = "Wired"
+category = "tech"
+
+[[feeds]]
+url = "https://www.technologyreview.com/feed/"
+source = "MIT Technology Review"
+category = "tech"
+
+[[feeds]]
+url = "https://github.blog/feed/"
+source = "GitHub Blog"
+category = "tech"
+
+[[feeds]]
+url = "https://dev.to/feed"
+source = "Dev.to"
+category = "tech"
+
+[[feeds]]
+url = "https://gigazine.net/news/rss_2.0/"
+source = "Gigazine"
+category = "tech"
+
+[[feeds]]
+url = "https://rss.itmedia.co.jp/rss/2.0/itmedia_all.xml"
+source = "ITmedia"
+category = "tech"
+
+[[feeds]]
+url = "https://lobste.rs/rss"
+source = "Lobsters"
+category = "tech"
+
+[[feeds]]
+url = "https://hackernoon.com/feed"
+source = "Hacker Noon"
+category = "tech"
+
+[[feeds]]
+url = "https://feed.infoq.com/"
+source = "InfoQ"
+category = "tech"
+
+[[feeds]]
+url = "https://www.theregister.com/headlines.atom"
+source = "The Register"
+category = "tech"
+
+[[feeds]]
+url = "https://9to5mac.com/feed/"
+source = "9to5Mac"
+category = "tech"
+
+[[feeds]]
+url = "https://www.androidauthority.com/feed/"
+source = "Android Authority"
+category = "tech"
+
+[[feeds]]
+url = "https://openai.com/blog/rss.xml"
+source = "OpenAI Blog"
+category = "tech"
+
+[[feeds]]
+url = "https://blog.google/rss/"
+source = "Google Blog"
+category = "tech"
+
+[[feeds]]
+url = "https://engineering.fb.com/feed/"
+source = "Meta Engineering"
+category = "tech"
+
+[[feeds]]
+url = "https://aws.amazon.com/blogs/aws/feed/"
+source = "AWS Blog"
+category = "tech"
+
+[[feeds]]
+url = "https://www.itmedia.co.jp/news/rss/2.0/news_bursts.xml"
+source = "ITmedia NEWS"
+category = "tech"
+
+[[feeds]]
+url = "https://ascii.jp/rss.xml"
+source = "ASCII.jp"
+category = "tech"
+
+[[feeds]]
+url = "https://www.gizmodo.jp/feed/atom/"
+source = "Gizmodo Japan"
+category = "tech"
+
+[[feeds]]
+url = "https://japanese.engadget.com/rss.xml"
+source = "Engadget Japan"
+category = "tech"
+
+[[feeds]]
+url = "https://pc.watch.impress.co.jp/data/rss/1.0/pcw/feed.rdf"
+source = "PC Watch"
+category = "tech"
+
+[[feeds]]
+url = "https://qiita.com/popular-items/feed"
+source = "Qiita"
+category = "tech"
+
+[[feeds]]
+url = "https://www.technologyreview.jp/feed/"
+source = "MIT Tech Review JP"
+category = "tech"
+
+[[feeds]]
+url = "https://techable.jp/feed"
+source = "Techable"
+category = "tech"
+
+# --- Business ---
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat5.xml"
+source = "NHK Business"
+category = "business"
+
+[[feeds]]
+url = "https://asia.nikkei.com/rss"
+source = "Nikkei Asia"
+category = "business"
+
+[[feeds]]
+url = "https://feeds.bloomberg.com/markets/news.rss"
+source = "Bloomberg"
+category = "business"
+
+[[feeds]]
+url = "https://www.ft.com/rss/home"
+source = "Financial Times"
+category = "business"
+
+[[feeds]]
+url = "https://assets.wor.jp/rss/rdf/nikkei/news.rdf"
+source = "Nikkei"
+category = "business"
+
+[[feeds]]
+url = "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"
+source = "CNBC"
+category = "business"
+
+[[feeds]]
+url = "https://www.forbes.com/innovation/feed2"
+source = "Forbes"
+category = "business"
+
+[[feeds]]
+url = "https://www.economist.com/latest/rss.xml"
+source = "The Economist"
+category = "business"
+
+[[feeds]]
+url = "https://feeds.content.dowjones.io/public/rss/mw_topstories"
+source = "WSJ MarketWatch"
+category = "business"
+
+[[feeds]]
+url = "https://www.coindesk.com/arc/outboundfeeds/rss/"
+source = "CoinDesk"
+category = "business"
+
+[[feeds]]
+url = "https://techcrunch.com/category/startups/feed/"
+source = "TechCrunch Startups"
+category = "business"
+
+[[feeds]]
+url = "https://hbr.org/feed"
+source = "HBR"
+category = "business"
+
+[[feeds]]
+url = "https://thebridge.jp/feed"
+source = "THE BRIDGE"
+category = "business"
+
+[[feeds]]
+url = "https://jp.techcrunch.com/feed/"
+source = "TechCrunch Japan"
+category = "business"
+
+[[feeds]]
+url = "https://toyokeizai.net/list/feed/rss"
+source = "東洋経済"
+category = "business"
+
+[[feeds]]
+url = "https://diamond.jp/feed/index.xml"
+source = "ダイヤモンド"
+category = "business"
+
+[[feeds]]
+url = "https://www.itmedia.co.jp/business/rss/2.0/bizmakoto.xml"
+source = "ITmedia ビジネス"
+category = "business"
+
+[[feeds]]
+url = "https://cointelegraph.com/rss"
+source = "Cointelegraph"
+category = "business"
+
+[[feeds]]
+url = "https://decrypt.co/feed"
+source = "Decrypt"
+category = "business"
+
+# --- Entertainment ---
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat6.xml"
+source = "NHK Entertainment"
+category = "entertainment"
+
+[[feeds]]
+url = "https://variety.com/feed/"
+source = "Variety"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.hollywoodreporter.com/feed/"
+source = "Hollywood Reporter"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.rollingstone.com/feed/"
+source = "Rolling Stone"
+category = "entertainment"
+
+[[feeds]]
+url = "https://deadline.com/feed/"
+source = "Deadline"
+category = "entertainment"
+
+[[feeds]]
+url = "https://natalie.mu/rss/all"
+source = "Natalie"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.oricon.co.jp/rss/news.xml"
+source = "ORICON"
+category = "entertainment"
+
+[[feeds]]
+url = "https://pitchfork.com/feed/feed-news/rss"
+source = "Pitchfork"
+category = "entertainment"
+
+[[feeds]]
+url = "https://feeds.feedburner.com/ign/all"
+source = "IGN"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.polygon.com/rss/index.xml"
+source = "Polygon"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.animenewsnetwork.com/newsfeed/rss.xml"
+source = "Anime News Network"
+category = "entertainment"
+
+[[feeds]]
+url = "https://collider.com/feed/"
+source = "Collider"
+category = "entertainment"
+
+[[feeds]]
+url = "https://kai-you.net/rss"
+source = "KAI-YOU"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.cinematoday.jp/rss"
+source = "シネマトゥデイ"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.famitsu.com/feed/"
+source = "ファミ通"
+category = "entertainment"
+
+[[feeds]]
+url = "https://automaton-media.com/feed/"
+source = "AUTOMATON"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.4gamer.net/rss/index.xml"
+source = "4Gamer"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.gamespark.jp/feed/index.xml"
+source = "Game*Spark"
+category = "entertainment"
+
+# --- Sports ---
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat7.xml"
+source = "NHK Sports"
+category = "sports"
+
+[[feeds]]
+url = "https://www.espn.com/espn/rss/news"
+source = "ESPN"
+category = "sports"
+
+[[feeds]]
+url = "http://feeds.bbci.co.uk/sport/rss.xml"
+source = "BBC Sport"
+category = "sports"
+
+[[feeds]]
+url = "https://bleacherreport.com/articles/feed"
+source = "Bleacher Report"
+category = "sports"
+
+[[feeds]]
+url = "https://www.si.com/rss/si_topstories.rss"
+source = "Sports Illustrated"
+category = "sports"
+
+[[feeds]]
+url = "https://www.sponichi.co.jp/rss/flash.rdf"
+source = "Sponichi"
+category = "sports"
+
+[[feeds]]
+url = "https://number.bunshun.jp/list/rss"
+source = "Number Web"
+category = "sports"
+
+[[feeds]]
+url = "https://www.skysports.com/rss/12040"
+source = "Sky Sports"
+category = "sports"
+
+[[feeds]]
+url = "https://www.goal.com/feeds/en/news"
+source = "Goal.com"
+category = "sports"
+
+[[feeds]]
+url = "https://www.autosport.com/rss/feed/all"
+source = "Autosport"
+category = "sports"
+
+[[feeds]]
+url = "https://www.mmafighting.com/rss/current"
+source = "MMA Fighting"
+category = "sports"
+
+[[feeds]]
+url = "https://www.nikkansports.com/baseball/mlb/rss/mlb.rdf"
+source = "日刊スポーツ MLB"
+category = "sports"
+
+[[feeds]]
+url = "https://www.footballchannel.jp/feed/"
+source = "Football Channel"
+category = "sports"
+
+[[feeds]]
+url = "https://thedigestweb.com/feed/"
+source = "THE DIGEST"
+category = "sports"
+
+[[feeds]]
+url = "https://www.athlecikanet.com/feed"
+source = "陸上ch"
+category = "sports"
+
+# --- Science ---
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat3.xml"
+source = "NHK Science"
+category = "science"
+
+[[feeds]]
+url = "https://www.nature.com/nature.rss"
+source = "Nature"
+category = "science"
+
+[[feeds]]
+url = "https://www.nasa.gov/rss/dyn/breaking_news.rss"
+source = "NASA"
+category = "science"
+
+[[feeds]]
+url = "https://www.sciencedaily.com/rss/all.xml"
+source = "Science Daily"
+category = "science"
+
+[[feeds]]
+url = "https://www.newscientist.com/feed/home"
+source = "New Scientist"
+category = "science"
+
+[[feeds]]
+url = "https://www.space.com/feeds/all"
+source = "Space.com"
+category = "science"
+
+[[feeds]]
+url = "https://phys.org/rss-feed/"
+source = "Phys.org"
+category = "science"
+
+[[feeds]]
+url = "https://www.wired.com/feed/category/science/latest/rss"
+source = "WIRED Science"
+category = "science"
+
+[[feeds]]
+url = "https://www.thelancet.com/rssfeed/lancet_current.xml"
+source = "The Lancet"
+category = "science"
+
+[[feeds]]
+url = "https://www.science.org/rss/news_current.xml"
+source = "Science Magazine"
+category = "science"
+
+[[feeds]]
+url = "https://www.carbonbrief.org/feed"
+source = "Carbon Brief"
+category = "science"
+
+[[feeds]]
+url = "https://rss.arxiv.org/rss/cs.AI"
+source = "arXiv CS.AI"
+category = "science"
+
+[[feeds]]
+url = "https://www.smithsonianmag.com/rss/latest_articles/"
+source = "Smithsonian"
+category = "science"
+
+[[feeds]]
+url = "https://www.livescience.com/feeds/all"
+source = "Live Science"
+category = "science"
+
+[[feeds]]
+url = "https://www.quantamagazine.org/feed/"
+source = "Quanta Magazine"
+category = "science"
+
+[[feeds]]
+url = "https://academist-cf.com/journal/feed/"
+source = "academist"
+category = "science"
+
+[[feeds]]
+url = "https://nazology.net/feed"
+source = "ナゾロジー"
+category = "science"
+
+# --- Timemachine (情報のタイムマシン: 海外の最先端) ---
+[[feeds]]
+url = "https://www.producthunt.com/feed"
+source = "Product Hunt"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/reddit/subreddit/technology"
+source = "Reddit r/technology"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/reddit/subreddit/futurology"
+source = "Reddit r/futurology"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/reddit/subreddit/artificial"
+source = "Reddit r/artificial"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/substack/newsletter/platformer"
+source = "Platformer (Substack)"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/substack/newsletter/stratechery"
+source = "Stratechery (Substack)"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/x/user/elonmusk"
+source = "Elon Musk (X)"
+category = "timemachine"
+
+[[feeds]]
+url = "https://rsshub.app/x/user/sama"
+source = "Sam Altman (X)"
+category = "timemachine"
+
+[[feeds]]
+url = "https://www.ben-evans.com/feed"
+source = "Benedict Evans"
+category = "timemachine"
+
+[[feeds]]
+url = "https://waitbutwhy.com/feed"
+source = "Wait But Why"
+category = "timemachine"
+
+# --- Goldmining (砂金掘り: 一次情報を噛み砕く) ---
+[[feeds]]
+url = "https://rss.arxiv.org/rss/cs.LG"
+source = "arXiv Machine Learning"
+category = "goldmining"
+
+[[feeds]]
+url = "https://rss.arxiv.org/rss/q-bio"
+source = "arXiv Quantitative Biology"
+category = "goldmining"
+
+[[feeds]]
+url = "https://rss.arxiv.org/rss/econ"
+source = "arXiv Economics"
+category = "goldmining"
+
+[[feeds]]
+url = "https://patents.google.com/rss?q=assignee:Google"
+source = "Google Patents"
+category = "goldmining"
+
+[[feeds]]
+url = "https://patents.google.com/rss?q=assignee:Apple"
+source = "Apple Patents"
+category = "goldmining"
+
+[[feeds]]
+url = "https://patents.google.com/rss?q=assignee:Tesla"
+source = "Tesla Patents"
+category = "goldmining"
+
+[[feeds]]
+url = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=40&output=atom"
+source = "SEC Filings"
+category = "goldmining"
+
+[[feeds]]
+url = "https://www.who.int/feeds/entity/csr/don/en/rss.xml"
+source = "WHO Disease Outbreak News"
+category = "goldmining"
+
+[[feeds]]
+url = "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml"
+source = "FDA Press Releases"
+category = "goldmining"
+
+# --- Podcast ---
+[[feeds]]
+url = "https://feeds.npr.org/510318/podcast.xml"
+source = "NPR Up First"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.simplecast.com/54nAGcIl"
+source = "The Daily (NYT)"
+category = "podcast"
+
+[[feeds]]
+url = "https://podcasts.files.bbci.co.uk/p02nq0gn.rss"
+source = "BBC Global News"
+category = "podcast"
+
+[[feeds]]
+url = "https://lexfridman.com/feed/podcast/"
+source = "Lex Fridman Podcast"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.megaphone.fm/hubermanlab"
+source = "Huberman Lab"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.simplecast.com/Y8lFbOT4"
+source = "Freakonomics Radio"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.simplecast.com/qm_9xx0g"
+source = "This American Life"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.simplecast.com/tl_f9IF2"
+source = "Radiolab"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.npr.org/510289/podcast.xml"
+source = "Planet Money"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.rebuild.fm/rebuildfm"
+source = "Rebuild.fm"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.bilingualnews.jp/bilingualnews.xml"
+source = "Bilingual News"
+category = "podcast"
+
+[[feeds]]
+url = "https://anchor.fm/s/57e07e30/podcast/rss"
+source = "Yurugengo Radio"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.feedburner.com/TEDTalks_audio"
+source = "TED Talks Daily"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.megaphone.fm/darknetdiaries"
+source = "Darknet Diaries"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.serialpodcast.org/serialpodcast"
+source = "Serial"
+category = "podcast"
+
+[[feeds]]
+url = "https://anchor.fm/s/3c2a2c4c/podcast/rss"
+source = "Off Topic"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.megaphone.fm/vergecast"
+source = "The Vergecast"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.megaphone.fm/pivot"
+source = "Pivot"
+category = "podcast"
+
+[[feeds]]
+url = "https://feeds.simplecast.com/JGE3yC0V"
+source = "Hard Fork (NYT)"
+category = "podcast"
+
+[[feeds]]
+url = "https://anchor.fm/s/2f1a21d8/podcast/rss"
+source = "Coder Radio"
+category = "podcast"
+
+# --- Additional Japanese News ---
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat1.xml"
+source = "NHK 社会"
+category = "general"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat2.xml"
+source = "NHK 文化・エンタメ"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat3.xml"
+source = "NHK 科学・医療"
+category = "science"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat4.xml"
+source = "NHK 政治"
+category = "general"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat5.xml"
+source = "NHK 経済"
+category = "business"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat6.xml"
+source = "NHK 国際"
+category = "general"
+
+[[feeds]]
+url = "https://www3.nhk.or.jp/rss/news/cat7.xml"
+source = "NHK スポーツ"
+category = "sports"
+
+[[feeds]]
+url = "https://rsshub.app/nikkei/index"
+source = "日本経済新聞"
+category = "business"
+
+[[feeds]]
+url = "https://rsshub.app/asahi/national"
+source = "朝日新聞 国内"
+category = "general"
+
+[[feeds]]
+url = "https://rsshub.app/mainichi"
+source = "毎日新聞"
+category = "general"
+
+[[feeds]]
+url = "https://rsshub.app/yomiuri/national"
+source = "読売新聞 国内"
+category = "general"
+
+[[feeds]]
+url = "https://rsshub.app/itmedia/news"
+source = "ITmedia"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/itmedia/business"
+source = "ITmedia ビジネス"
+category = "business"
+
+[[feeds]]
+url = "https://rsshub.app/watch.impress.co.jp"
+source = "Impress Watch"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/newspicks/topics/104"
+source = "NewsPicks テクノロジー"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/newspicks/topics/101"
+source = "NewsPicks スタートアップ"
+category = "business"
+
+# --- Additional Tech News ---
+[[feeds]]
+url = "https://rsshub.app/github/trending/weekly"
+source = "GitHub Trending"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/producthunt/today"
+source = "Product Hunt"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/reddit/subreddit/programming"
+source = "r/programming"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/reddit/subreddit/technology"
+source = "r/technology"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/lobsters"
+source = "Lobsters"
+category = "tech"
+
+[[feeds]]
+url = "https://dev.to/feed"
+source = "DEV Community"
+category = "tech"
+
+[[feeds]]
+url = "https://www.theverge.com/rss/index.xml"
+source = "The Verge - All"
+category = "tech"
+
+[[feeds]]
+url = "https://techcrunch.com/feed/"
+source = "TechCrunch - All"
+category = "tech"
+
+[[feeds]]
+url = "https://www.engadget.com/rss.xml"
+source = "Engadget"
+category = "tech"
+
+[[feeds]]
+url = "https://arstechnica.com/feed/"
+source = "Ars Technica"
+category = "tech"
+
+# --- Additional Business News ---
+[[feeds]]
+url = "https://rsshub.app/bloomberg/technology"
+source = "Bloomberg Tech"
+category = "tech"
+
+[[feeds]]
+url = "https://rsshub.app/wsj/latest"
+source = "WSJ Latest"
+category = "business"
+
+[[feeds]]
+url = "https://www.ft.com/?format=rss"
+source = "Financial Times"
+category = "business"
+
+[[feeds]]
+url = "https://fortune.com/feed/"
+source = "Fortune"
+category = "business"
+
+[[feeds]]
+url = "https://hbr.org/feed"
+source = "Harvard Business Review"
+category = "business"
+
+# --- Additional Science News ---
+[[feeds]]
+url = "https://www.nature.com/nature.rss"
+source = "Nature"
+category = "science"
+
+[[feeds]]
+url = "https://www.sciencemag.org/rss/news_current.xml"
+source = "Science Magazine"
+category = "science"
+
+[[feeds]]
+url = "https://www.scientificamerican.com/feed/"
+source = "Scientific American"
+category = "science"
+
+[[feeds]]
+url = "https://www.space.com/feeds/all"
+source = "Space.com"
+category = "science"
+
+[[feeds]]
+url = "https://phys.org/rss-feed/"
+source = "Phys.org"
+category = "science"
+
+# --- Additional Entertainment News ---
+[[feeds]]
+url = "https://variety.com/feed/"
+source = "Variety"
+category = "entertainment"
+
+[[feeds]]
+url = "https://deadline.com/feed/"
+source = "Deadline"
+category = "entertainment"
+
+[[feeds]]
+url = "https://www.thewrap.com/feed/"
+source = "TheWrap"
+category = "entertainment"
+
+[[feeds]]
+url = "https://rsshub.app/imdb/coming-soon"
+source = "IMDb Coming Soon"
+category = "entertainment"
+
+# --- Additional Sports News ---
+[[feeds]]
+url = "https://www.espn.com/espn/rss/news"
+source = "ESPN"
+category = "sports"
+
+[[feeds]]
+url = "https://www.si.com/.rss/si/topstories"
+source = "Sports Illustrated"
+category = "sports"
+
+[[feeds]]
+url = "https://rsshub.app/nba/app_news"
+source = "NBA News"
+category = "sports"
+
+[[feeds]]
+url = "https://www.skysports.com/rss/12040"
+source = "Sky Sports"
+category = "sports"

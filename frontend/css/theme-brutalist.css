@@ -1,0 +1,196 @@
+/* ===== Brutalist Theme: High contrast, bold borders, raw aesthetic ===== */
+
+[data-theme="brutalist"] {
+  --bg: #ffffff;
+  --text: #000000;
+  --surface: #ffffff;
+  --border: #000000;
+  --accent: #ff0000;
+  --accent-hover: #cc0000;
+  --muted: #666666;
+  --radius: 0;
+  font-family: 'Arial Black', 'Impact', 'Inter', system-ui, sans-serif;
+}
+[data-theme="brutalist"][data-mode="dark"] {
+  --bg: #000000;
+  --text: #ffffff;
+  --surface: #111111;
+  --border: #ffffff;
+  --accent: #ff3333;
+  --accent-hover: #ff6666;
+  --muted: #999999;
+}
+
+/* Header — bold bar */
+[data-theme="brutalist"] .header {
+  background: var(--text);
+  border-bottom: 4px solid var(--accent);
+}
+[data-theme="brutalist"] .logo {
+  color: var(--bg);
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+[data-theme="brutalist"] .cat-btn {
+  color: var(--bg);
+  border: 2px solid var(--bg);
+  border-radius: 0;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+[data-theme="brutalist"] .cat-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+[data-theme="brutalist"] .cat-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+[data-theme="brutalist"] .chat-toggle {
+  color: var(--bg);
+  border: 2px solid var(--bg);
+  border-radius: 0;
+}
+
+/* Main container */
+[data-theme="brutalist"] .main {
+  max-width: 900px;
+}
+
+/* Articles — grid boxed */
+[data-theme="brutalist"] .articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+[data-theme="brutalist"] .article {
+  background: var(--bg);
+  border: 3px solid var(--border);
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  flex-direction: column;
+}
+[data-theme="brutalist"] .article:hover {
+  box-shadow: 6px 6px 0 var(--accent);
+  transform: translate(-2px, -2px);
+  transition: all 0.1s;
+  z-index: 1;
+  position: relative;
+}
+
+/* Hide images */
+[data-theme="brutalist"] .article-img-wrap {
+  display: none !important;
+}
+
+/* Title — big and bold */
+[data-theme="brutalist"] .article-title {
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+[data-theme="brutalist"] .article-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+[data-theme="brutalist"] .article-title a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+[data-theme="brutalist"] .article-title a:visited {
+  color: var(--muted);
+}
+
+/* Description */
+[data-theme="brutalist"] .article-desc {
+  -webkit-line-clamp: 1;
+  font-size: 0.82em;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+}
+
+/* Meta */
+[data-theme="brutalist"] .article-meta {
+  font-size: 0.72em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+[data-theme="brutalist"] .article-source {
+  color: var(--accent);
+}
+
+/* Group badge */
+[data-theme="brutalist"] .group-badge {
+  color: var(--accent);
+  font-size: 0.7em;
+  font-weight: 900;
+  border-radius: 0;
+  border-width: 2px;
+}
+
+/* Read state */
+[data-theme="brutalist"] .article.read {
+  opacity: 0.3;
+}
+[data-theme="brutalist"] .article.read::after {
+  border-radius: 0;
+  font-weight: 900;
+}
+
+/* Load more */
+[data-theme="brutalist"] .load-more-btn {
+  background: var(--text);
+  border: 3px solid var(--text);
+  color: var(--bg);
+  border-radius: 0;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+[data-theme="brutalist"] .load-more-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 4px 4px 0 var(--text);
+}
+
+/* Detail */
+[data-theme="brutalist"] .detail-q-chip {
+  border-radius: 0;
+  border-width: 2px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* Scrollbar */
+[data-theme="brutalist"] ::-webkit-scrollbar {
+  width: 8px;
+}
+[data-theme="brutalist"] ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+[data-theme="brutalist"] ::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 0;
+}
+[data-theme="brutalist"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Pro badge */
+[data-theme="brutalist"] .pro-badge {
+  color: var(--accent);
+  border-color: var(--accent);
+  border-width: 2px;
+  border-radius: 0;
+}
