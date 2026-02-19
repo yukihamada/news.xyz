@@ -21,6 +21,37 @@ impl Db {
         )
         .map_err(|e| format!("SQLite pragma: {e}"))?;
 
+        // Migration: Add missing columns to existing articles table before schema creation.
+        // CREATE TABLE IF NOT EXISTS won't add new columns to an existing table,
+        // so we must ALTER TABLE first if the columns are missing.
+        let table_exists: bool = conn.query_row(
+            "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='articles'",
+            [],
+            |row| row.get::<_, i64>(0),
+        ).unwrap_or(0) > 0;
+
+        if table_exists {
+            let has_pop: bool = conn.query_row(
+                "SELECT COUNT(*) FROM pragma_table_info('articles') WHERE name='popularity_score'",
+                [],
+                |row| row.get::<_, i64>(0),
+            ).unwrap_or(0) > 0;
+
+            if !has_pop {
+                info!("Running migration: Adding popularity_score, enrichment columns");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN enrichment_status TEXT;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN enriched_at TEXT;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN popularity_score REAL NOT NULL DEFAULT 0.0;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN ai_summary TEXT;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN ai_keywords TEXT;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN ai_sentiment TEXT;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN ai_importance REAL;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN ai_category TEXT;");
+                let _ = conn.execute_batch("ALTER TABLE articles ADD COLUMN analyzed_at TEXT;");
+                info!("Migration complete");
+            }
+        }
+
         conn.execute_batch(
             "CREATE TABLE IF NOT EXISTS articles (
                 id TEXT PRIMARY KEY,
